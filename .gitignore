@@ -26,3 +26,7 @@ AutoTest.VS.xml
 ldeploy.bat
 *_mm_cache.bin
 
+
+*.user
+/AutoTest.config
+/AutoTest.config.old

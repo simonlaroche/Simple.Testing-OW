@@ -108,6 +108,8 @@ namespace PowerAssert.Infrastructure
                 case ExpressionType.Negate:
                 case ExpressionType.NegateChecked:
                     return new UnaryNode() { Prefix = "-", Operand = Parse(e.Operand), PrefixValue = GetValue(e, false) };
+				case ExpressionType.ArrayLength:
+					return new UnaryNode(){ Suffix = " length", Operand = Parse(e.Operand), PrefixValue = GetValue(e, true)};
 
 
             }

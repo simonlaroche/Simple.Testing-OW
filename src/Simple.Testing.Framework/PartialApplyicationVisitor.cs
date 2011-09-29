@@ -27,7 +27,16 @@ namespace Simple.Testing.Framework
 
         protected override Expression VisitParameter(ParameterExpression node)
         {
-            return (node == _paramExprToReplace) ? _valuetoApply : base.VisitParameter(node);
+        	Expression result = null;
+			if(node == _paramExprToReplace)
+			{
+				result = _valuetoApply;
+			}
+			else
+			{
+				result = base.VisitParameter(node);	
+			}
+        	return result;
         }
     }
 

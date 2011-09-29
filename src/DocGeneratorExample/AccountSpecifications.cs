@@ -18,12 +18,12 @@ namespace DocGeneratorExample
                     account => account.Transactions.Count() == 0
                 }
         };
-        public Specification when_depositing_to_a_new_account = new ActionSpecification<Account>()
-        {
-            Before = () =>SystemTime.Set(new DateTime(2011,1,1)),
-            On = () => new Account("Joe User", 14),
-            When = account => account.Deposit(new Money(50)),
-            Expect = 
+		public Specification when_depositing_to_a_new_account = new ActionSpecification<Account>()
+		{
+			Before = () => SystemTime.Set(new DateTime(2011, 1, 1)),
+			On = () => new Account("Joe User", 14),
+			When = account => account.Deposit(new Money(50)),
+			Expect = 
                 {
                     account => account.CurrentBalance == new Money(50),
                     account => account.Transactions.Count() == 1,
@@ -31,31 +31,31 @@ namespace DocGeneratorExample
                     account => account.Transactions.First().Type == TransactionType.Deposit,
                     account => account.Transactions.First().Timestamp == new DateTime(2011,1,1),
                 },
-            Finally = SystemTime.Clear
-        };
-        public Specification when_withdrawing_to_overdraw_an_account = new FailingSpecification<Account, CannotOverdrawAccountException>()
-        {
-            On = () => new Account("Joe User", 14),
-            When = account => account.Withdraw(new Money(50)),
-            Expect = 
+			Finally = SystemTime.Clear
+		};
+		public Specification when_withdrawing_to_overdraw_an_account = new FailingSpecification<Account, CannotOverdrawAccountException>()
+		{
+			On = () => new Account("Joe User", 14),
+			When = account => account.Withdraw(new Money(50)),
+			Expect = 
                 {
                     exception => exception.Message == "The operation would overdraw the account"
                 }
-        };
-        public Specification when_witdrawing_from_account_with_sufficient_funds = new ActionSpecification<Account>()
-        {
-            Before = () => SystemTime.Set(new DateTime(2011, 1, 1)),
-            On = () => new Account("Joe User", 14, new Money(100)),
-            When = account => account.Withdraw(new Money(50)),
-            Expect = 
+		};
+		public Specification when_witdrawing_from_account_with_sufficient_funds = new ActionSpecification<Account>()
+		{
+			Before = () => SystemTime.Set(new DateTime(2011, 1, 1)),
+			On = () => new Account("Joe User", 14, new Money(100)),
+			When = account => account.Withdraw(new Money(50)),
+			Expect = 
                 {
                     account => account.CurrentBalance == new Money(50),
                     account => account.Transactions.Count() == 1,
                     account => account.Transactions.First().Amount == new Money(-5),
                     account => account.Transactions.First().Type == TransactionType.Deposit,
                 },
-            Finally = SystemTime.Clear
-        };
+			Finally = SystemTime.Clear
+		};
     }
 
      class Account

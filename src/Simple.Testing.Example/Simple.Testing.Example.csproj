@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A245A823-1DA4-4086-A265-158DC379B446}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simple.Testing.Example</RootNamespace>
     <AssemblyName>Simple.Testing.Example</AssemblyName>
@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DocGeneratorExample.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DataDrivenSpecification.cs" />
     <Compile Include="FailingSpecification.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="QuerySpecification.cs" />
     <Compile Include="SutSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -10,17 +10,28 @@ namespace Simple.Testing.Runner
     {
         static void Main(string[] args)
         {
-            args.ForEach(x => new PrintFailuresOutputter().Output(SimpleRunner.RunAllInAssembly(x)));
+        	IList<IEnumerable<RunResult>> results = new List<IEnumerable<RunResult>>();
+        	foreach (var assembly in args)
+        	{
+        		var assemblyResults = SimpleRunner.RunAllInAssembly(assembly);
+        		results.Add(assemblyResults);
+        		new PrintFailuresOutputter().Output(assemblyResults);
+        	}
+			OutputXml(results);
         }
 
-        
+    	private static void OutputXml(IList<IEnumerable<RunResult>> results)
+    	{
+    		XmlResultWriter resultWriter = new XmlResultWriter("test-result.xml");
+			resultWriter.SaveTestResult(results.SelectMany(x=>x));
+    	}
     }
 
     internal class PrintFailuresOutputter
     {
         public void Output(IEnumerable<RunResult> results)
         {
-            int totalCount = 0;
+			int totalCount = 0;
             int totalAsserts = 0;
             int fail = 0;
             int failAsserts = 0;
@@ -40,7 +51,7 @@ namespace Simple.Testing.Runner
 
         private static string Format(RunResult result)
         {
-            if (result.Passed) return "";
+          //  if (result.Passed) return "";
             var ret = (result.SpecificationName ?? result.FoundOnMemberInfo.Name) + " ";
             ret += (result.Passed ? "PASSED" : "FAILED") + " " + result.Message + "\n\n";
             if (result.Thrown != null)
@@ -57,4 +68,6 @@ namespace Simple.Testing.Runner
             return ret;
         }
     }
+
+
 }

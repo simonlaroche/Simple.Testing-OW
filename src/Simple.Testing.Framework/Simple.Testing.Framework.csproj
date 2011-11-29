@@ -51,12 +51,12 @@
     <Compile Include="SpecificationTemplates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\powerassert\powerassert\PowerAssert\PowerAssertForked.csproj">
+    <ProjectReference Include="..\PowerAssert\PowerAssertForked\PowerAssertForked.csproj">
       <Project>{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}</Project>
       <Name>PowerAssertForked</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

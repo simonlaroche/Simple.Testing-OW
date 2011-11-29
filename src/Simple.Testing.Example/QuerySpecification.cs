@@ -20,7 +20,7 @@ namespace Simple.Testing.Example
         {
             On = () => new QueryExample(),
             When = obj => obj.GetProduct(14),
-            Expect =
+			Expect =
                 {
                     product => product.Id == 14,
                     product => product.Code == "TEST",

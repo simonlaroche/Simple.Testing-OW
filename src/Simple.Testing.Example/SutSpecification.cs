@@ -13,7 +13,7 @@ namespace Simple.Testing.Example
         public Specification when_withdrawing_money_from_empty_account = new ActionSpecification<Depositor>
         {
             On = () => new Depositor(13),
-            When = depositor => depositor.Withdraw(50.00m),
+            When = DepositorAction,
             Expect =
                                    {
                                        depositor => depositor.Balance > 0.01m,
@@ -26,6 +26,11 @@ namespace Simple.Testing.Example
         {
             return 12;
         }
+
+		private static void DepositorAction(Depositor depositor)
+		{
+			depositor.Withdraw(50m);
+		}
     }
 
 

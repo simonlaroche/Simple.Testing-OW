@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Testing.Framework", "src\Simple.Testing.Framework\Simple.Testing.Framework.csproj", "{A6E67E2A-2A26-4016-BE26-D6F3141729D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerAssertForked", "lib\powerassert\powerassert\PowerAssert\PowerAssertForked.csproj", "{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{F4BD98A7-2250-4BD0-AAC5-4F4566E85D31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocGeneratorExample", "src\DocGeneratorExample\DocGeneratorExample.csproj", "{60800BA0-9F82-4CE4-A283-5BC27CC7DE04}"
@@ -16,6 +14,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Testing.Runner", "src\Simple.Testing.Runner\Simple.Testing.Runner.csproj", "{415B71AE-58D4-4DC3-AD50-6E816DB647A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.TestRunners.Simple.Testing", "src\AutoTest.TestRunners.Simple.Testing\AutoTest.TestRunners.Simple.Testing.csproj", "{269CAED8-70FB-4782-9AF9-1724165BC309}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerAssertForked", "src\PowerAssert\PowerAssertForked\PowerAssertForked.csproj", "{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerAssert", "PowerAssert", "{7D90D4BF-43B5-4A79-9DF8-0FB605E78CDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerAssertTests", "src\PowerAssert\PowerAssertTests\PowerAssertTests.csproj", "{665FDD28-99EF-4038-9469-1B27F778BF1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,21 +49,6 @@ Global
 		{A6E67E2A-2A26-4016-BE26-D6F3141729D9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A6E67E2A-2A26-4016-BE26-D6F3141729D9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A6E67E2A-2A26-4016-BE26-D6F3141729D9}.Release|x86.ActiveCfg = Release|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Any CPU.ActiveCfg = NuPackRelease|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Any CPU.Build.0 = NuPackRelease|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Mixed Platforms.ActiveCfg = NuPackRelease|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Mixed Platforms.Build.0 = NuPackRelease|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|x86.ActiveCfg = NuPackRelease|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{60800BA0-9F82-4CE4-A283-5BC27CC7DE04}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{60800BA0-9F82-4CE4-A283-5BC27CC7DE04}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{60800BA0-9F82-4CE4-A283-5BC27CC7DE04}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -135,6 +124,36 @@ Global
 		{269CAED8-70FB-4782-9AF9-1724165BC309}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{269CAED8-70FB-4782-9AF9-1724165BC309}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{269CAED8-70FB-4782-9AF9-1724165BC309}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Any CPU.ActiveCfg = NuPackRelease|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Any CPU.Build.0 = NuPackRelease|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Mixed Platforms.ActiveCfg = NuPackRelease|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|Mixed Platforms.Build.0 = NuPackRelease|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.NuPackRelease|x86.ActiveCfg = NuPackRelease|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.NuPackRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.NuPackRelease|Any CPU.Build.0 = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.NuPackRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.NuPackRelease|Mixed Platforms.Build.0 = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.NuPackRelease|x86.ActiveCfg = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{665FDD28-99EF-4038-9469-1B27F778BF1D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,5 +161,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{60800BA0-9F82-4CE4-A283-5BC27CC7DE04} = {F4BD98A7-2250-4BD0-AAC5-4F4566E85D31}
 		{A245A823-1DA4-4086-A265-158DC379B446} = {F4BD98A7-2250-4BD0-AAC5-4F4566E85D31}
+		{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9} = {7D90D4BF-43B5-4A79-9DF8-0FB605E78CDE}
+		{665FDD28-99EF-4038-9469-1B27F778BF1D} = {7D90D4BF-43B5-4A79-9DF8-0FB605E78CDE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+		OpenWrap.VisualStudioIntegration2010 = 1;Ensures OpenWrap initialization when a solution is opened.;OpenWrap Visual Studio Solution Add-in
 	EndGlobalSection
 EndGlobal

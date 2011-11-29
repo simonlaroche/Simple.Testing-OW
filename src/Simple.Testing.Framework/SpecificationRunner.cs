@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using PowerAssert;
 
 namespace Simple.Testing.Framework
 {
-    public class SpecificationRunner
+	using PowerAssert;
+
+	public class SpecificationRunner
     {
         public RunResult RunSpecifciation(SpecificationToRun spec)
         {

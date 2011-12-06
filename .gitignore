@@ -30,3 +30,6 @@ ldeploy.bat
 *.user
 /AutoTest.config
 /AutoTest.config.old
+/wraps
+*.wrap
+/src/test-result.xml

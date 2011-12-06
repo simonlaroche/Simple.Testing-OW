@@ -6,13 +6,20 @@ using System.Text;
 
 namespace Simple.Testing.Framework
 {
-    public static class SimpleRunner
+    public  class SimpleRunner
     {
         public static IEnumerable<RunResult> RunAllInAssembly(string assemblyName)
         {
             var assembly = Assembly.LoadFrom(assemblyName);
             return RunAllInAssembly(assembly);
         }
+
+		public static IEnumerable<RunResult> RunMember(MemberInfo memberInfo)
+		{
+			var generator = new MemberGenerator(memberInfo); ;
+			var runner = new SpecificationRunner();
+			return generator.GetSpecifications().Select(runner.RunSpecifciation);
+		} 
 
         public static IEnumerable<RunResult> RunAllInAssembly(Assembly assembly)
         {

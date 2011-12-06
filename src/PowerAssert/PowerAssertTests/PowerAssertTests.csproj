@@ -52,7 +52,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PowerAssertForked\PowerAssertForked.csproj">
       <Project>{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}</Project>
-      <Name>PowerAssert</Name>
+      <Name>PowerAssertForked</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />

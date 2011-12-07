@@ -8,7 +8,6 @@ using JetBrains.ReSharper.Psi.Caches;
 using JetBrains.ReSharper.Psi.Util;
 using JetBrains.ReSharper.UnitTestFramework;
 
-using Simple.Testing.Utility.Internal;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
@@ -45,7 +44,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
       return String.Format("{0}{1}{2}",
                            GetTitlePrefix(),
                            String.IsNullOrEmpty(GetTitlePrefix()) ? String.Empty : " ",
-                           FieldName.ToFormat());
+                           FieldName);
     }
 
     public override IDeclaredElement GetDeclaredElement()

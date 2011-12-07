@@ -17,12 +17,11 @@ using Simple.Testing.ReSharperRunner.Factories;
 namespace Simple.Testing.ReSharperRunner.Explorers
 {
 	using Factories;
+	using Framework;
 
 	class AssemblyExplorer
   {
     readonly IMetadataAssembly _assembly;
-    readonly BehaviorFactory _behaviorFactory;
-    readonly BehaviorSpecificationFactory _behaviorSpecificationFactory;
     readonly UnitTestElementConsumer _consumer;
     readonly ContextFactory _contextFactory;
     readonly ContextSpecificationFactory _contextSpecificationFactory;
@@ -57,8 +56,6 @@ namespace Simple.Testing.ReSharperRunner.Explorers
         _contextFactory = new ContextFactory(provider, project, projectEnvoy, _assembly.Location, cache);
 #endif
         _contextSpecificationFactory = new ContextSpecificationFactory(provider, project, projectEnvoy, cache);
-        _behaviorFactory = new BehaviorFactory(provider, project, projectEnvoy, cache);
-        _behaviorSpecificationFactory = new BehaviorSpecificationFactory(provider, project, projectEnvoy);
 #endif
       }
     }
@@ -71,30 +68,19 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #else
                                                           x.AssemblyName.Name,
 #endif
-                                                          typeof(It).Assembly.GetName().Name,
+                                                          typeof(Specification).Assembly.GetName().Name,
                                                           StringComparison.InvariantCultureIgnoreCase)))
       {
         return;
       }
 
-      _assembly.GetTypes().Where(type => type.IsContext()).ForEach(type =>
+      CollectionUtil.ForEach(_assembly.GetTypes().Where(type => type.IsContext()), type =>
       {
         var contextElement = _contextFactory.CreateContext(type);
         _consumer(contextElement);
 
-        type
-          .GetSpecifications()
-          .ForEach(x => _consumer(_contextSpecificationFactory.CreateContextSpecification(contextElement, x)));
-
-        type.GetBehaviors().ForEach(x =>
-        {
-          var behaviorElement = _behaviorFactory.CreateBehavior(contextElement, x);
-          _consumer(behaviorElement);
-
-          _behaviorSpecificationFactory
-            .CreateBehaviorSpecificationsFromBehavior(behaviorElement, x)
-            .ForEach(y => _consumer(y));
-        });
+        CollectionUtil.ForEach(type
+                   	.GetSpecifications(), x => _consumer(_contextSpecificationFactory.CreateContextSpecification(contextElement, x)));
       });
     }
   }

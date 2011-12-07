@@ -67,10 +67,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
 #else
                                               type.CLRName,
 #endif
-                                              _assemblyPath,
-                                              type.GetSubjectString(),
-                                              type.GetTags(),
-                                              type.IsIgnored());
+                                              _assemblyPath);
 
 #if RESHARPER_6
       foreach (var child in context.Children)
@@ -94,10 +91,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                        _project,
                                        _projectEnvoy,
                                        type.FullyQualifiedName,
-                                       _assemblyPath,
-                                       type.GetSubjectString(),
-                                       type.GetTags(),
-                                       type.IsIgnored());
+                                       _assemblyPath);
     }
 
     public static ContextElement GetOrCreateContextElement(MSpecUnitTestProvider provider,
@@ -109,13 +103,10 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                                            IProject project,
                                                            ProjectModelElementEnvoy projectEnvoy,
                                                            string typeName,
-                                                           string assemblyLocation,
-                                                           string subject,
-                                                           ICollection<string> tags,
-                                                           bool isIgnored)
+                                                           string assemblyLocation)
     {
 #if RESHARPER_6
-      var id = ContextElement.CreateId(subject, typeName);
+      var id = ContextElement.CreateId(typeName);
 #if RESHARPER_61
       var contextElement = manager.GetElementById(project, id) as ContextElement;
 #else
@@ -141,9 +132,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                 projectEnvoy,
                                 typeName,
                                 assemblyLocation,
-                                subject,
-                                tags,
-                                isIgnored);
+								false);
     }
 
 #if RESHARPER_6

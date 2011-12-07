@@ -61,7 +61,7 @@ namespace Simple.Testing.ReSharperRunner
 
     public Image Icon
     {
-      get { return Resources.Logo; }
+      get { return null; }
     }
 
 #if RESHARPER_6
@@ -117,7 +117,7 @@ namespace Simple.Testing.ReSharperRunner
 
     public RemoteTaskRunnerInfo GetTaskRunnerInfo()
     {
-      return new RemoteTaskRunnerInfo(typeof(RecursiveMSpecTaskRunner));
+      return new RemoteTaskRunnerInfo(typeof(RecursiveTaskRunner));
     }
 
     public IList<UnitTestTask> GetTaskSequence(UnitTestElement element, IList<UnitTestElement> explicitElements)
@@ -134,36 +134,6 @@ namespace Simple.Testing.ReSharperRunner
                  _taskFactory.CreateContextSpecificationTask(context,
                                                              contextSpecification,
                                                              explicitElements.Contains(contextSpecification))
-               };
-      }
-
-      if (element is BehaviorElement)
-      {
-        var behavior = element as BehaviorElement;
-        var context = behavior.Context;
-
-        return new List<UnitTestTask>
-               {
-                 _taskFactory.CreateAssemblyLoadTask(context),
-                 _taskFactory.CreateContextTask(context, explicitElements.Contains(context)),
-                 _taskFactory.CreateBehaviorTask(context, behavior, explicitElements.Contains(behavior))
-               };
-      }
-
-      if (element is BehaviorSpecificationElement)
-      {
-        var behaviorSpecification = element as BehaviorSpecificationElement;
-        var behavior = behaviorSpecification.Behavior;
-        var context = behavior.Context;
-
-        return new List<UnitTestTask>
-               {
-                 _taskFactory.CreateAssemblyLoadTask(context),
-                 _taskFactory.CreateContextTask(context, explicitElements.Contains(context)),
-                 _taskFactory.CreateBehaviorTask(context, behavior, explicitElements.Contains(behavior)),
-                 _taskFactory.CreateBehaviorSpecificationTask(context,
-                                                              behaviorSpecification,
-                                                              explicitElements.Contains(behaviorSpecification))
                };
       }
 
@@ -187,7 +157,7 @@ namespace Simple.Testing.ReSharperRunner
         case UnitTestElementKind.Test:
           return element is ContextSpecificationElement;
         case UnitTestElementKind.TestContainer:
-          return element is ContextElement || element is BehaviorElement;
+          return element is ContextElement;
       }
 
       return false;
@@ -205,7 +175,7 @@ namespace Simple.Testing.ReSharperRunner
         case UnitTestElementKind.Test:
           return declaredElement.IsSpecification();
         case UnitTestElementKind.TestContainer:
-          return declaredElement.IsContext() || declaredElement.IsBehavior();
+          return declaredElement.IsContext();
       }
 
       return false;

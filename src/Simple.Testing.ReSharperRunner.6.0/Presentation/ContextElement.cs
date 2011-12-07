@@ -12,8 +12,6 @@ using JetBrains.ReSharper.UnitTestFramework.Elements;
 #endif
 using JetBrains.Util;
 
-using Simple.Testing.Factories;
-using Simple.Testing.Utility.Internal;
 
 using ContextFactory = Simple.Testing.ReSharperRunner.Factories.ContextFactory;
 
@@ -24,7 +22,6 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 	public class ContextElement : Element, ISerializableElement
   {
     readonly string _assemblyLocation;
-    readonly string _subject;
     readonly IEnumerable<UnitTestElementCategory> _categories;
 
     public ContextElement(MSpecUnitTestProvider provider,
@@ -33,18 +30,10 @@ namespace Simple.Testing.ReSharperRunner.Presentation
                           ProjectModelElementEnvoy projectEnvoy,
                           string typeName,
                           string assemblyLocation,
-                          string subject,
-                          IEnumerable<string> tags,
                           bool isIgnored)
       : base(provider, psiModuleManager, cacheManager, null, projectEnvoy, typeName, isIgnored)
     {
       _assemblyLocation = assemblyLocation;
-      _subject = subject;
-
-      if (tags != null)
-      {
-        _categories = UnitTestElementCategory.Create(tags);
-      }
     }
 
     public override string ShortName
@@ -59,17 +48,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 
     public override string GetPresentation()
     {
-      return GetSubject() + new ClrTypeName(GetTypeClrName()).ShortName.ToFormat();
-    }
-
-    string GetSubject()
-    {
-      if (String.IsNullOrEmpty(_subject))
-      {
-        return null;
-      }
-
-      return _subject + ", ";
+      return new ClrTypeName(GetTypeClrName()).ShortName;
     }
 
     public override IDeclaredElement GetDeclaredElement()
@@ -89,7 +68,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 
     public override string Id
     {
-      get { return CreateId(_subject, TypeName); }
+      get { return CreateId(TypeName); }
     }
 
     public void WriteToXml(XmlElement parent)
@@ -97,7 +76,6 @@ namespace Simple.Testing.ReSharperRunner.Presentation
       parent.SetAttribute("typeName", TypeName);
       parent.GetAttribute("assemblyLocation", AssemblyLocation);
       parent.SetAttribute("isIgnored", Explicit.ToString());
-      parent.GetAttribute("subject", GetSubject());
     }
 
     public static IUnitTestElement ReadFromXml(XmlElement parent, IUnitTestElement parentElement, MSpecUnitTestProvider provider, ISolution solution
@@ -125,17 +103,13 @@ namespace Simple.Testing.ReSharperRunner.Presentation
                                                       project,
                                                       ProjectModelElementEnvoy.Create(project),
                                                       typeName,
-                                                      assemblyLocation,
-                                                      subject,
-                                                      EmptyArray<string>.Instance,
-                                                      isIgnored);
+                                                      assemblyLocation);
     }
 
-    public static string CreateId(string subject, string typeName)
+    public static string CreateId(string typeName)
     {
-      var id = String.Format("{0}.{1}", subject, typeName);
-      System.Diagnostics.Debug.WriteLine("CE  " + id);
-      return id;
+	  System.Diagnostics.Debug.WriteLine("CE  " + typeName);
+	  return typeName;
     }
   }
 }

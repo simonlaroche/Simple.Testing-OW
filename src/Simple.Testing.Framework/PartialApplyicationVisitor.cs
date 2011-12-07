@@ -1,9 +1,12 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿
 
 namespace Simple.Testing.Framework
 {
-    public sealed class PartialApplicationVisitor : ExpressionVisitor
+	using System;
+	using System.Linq.Expressions;
+	using Linq;
+
+	public sealed class PartialApplicationVisitor : ExpressionVisitor
     {
         private readonly ParameterExpression _paramExprToReplace;
         private readonly ConstantExpression _valuetoApply;

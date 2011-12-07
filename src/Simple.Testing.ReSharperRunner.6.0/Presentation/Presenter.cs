@@ -17,8 +17,6 @@ namespace Simple.Testing.ReSharperRunner.Presentation
     {
       Present<ContextElement>(PresentContext);
       Present<FieldElement>(PresentSpecification);
-      Present<BehaviorElement>(PresentBehavior);
-      Present<BehaviorSpecificationElement>(PresentBehaviorSpecification);
     }
 
     protected virtual void PresentContext(ContextElement element,
@@ -33,22 +31,6 @@ namespace Simple.Testing.ReSharperRunner.Presentation
                                                 IPresentableItem item,
                                                 TreeModelNode modelNode,
                                                 PresentationState state)
-    {
-      PresentItem(item, element, state, UnitTestElementImage.Test);
-    }
-
-    protected virtual void PresentBehavior(BehaviorElement element,
-                                           IPresentableItem item,
-                                           TreeModelNode modelNode,
-                                           PresentationState state)
-    {
-      PresentItem(item, element, state, UnitTestElementImage.TestContainer);
-    }
-
-    protected virtual void PresentBehaviorSpecification(BehaviorSpecificationElement element,
-                                                        IPresentableItem item,
-                                                        TreeModelNode modelNode,
-                                                        PresentationState state)
     {
       PresentItem(item, element, state, UnitTestElementImage.Test);
     }

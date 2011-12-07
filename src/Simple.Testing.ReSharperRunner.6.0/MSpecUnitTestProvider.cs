@@ -25,7 +25,7 @@ namespace Simple.Testing.ReSharperRunner
 	[UnitTestProvider]
   public class MSpecUnitTestProvider : IUnitTestProvider
   {
-    const string ProviderId = "Machine.Specifications";
+    const string ProviderId = "Simple.Testing";
     readonly UnitTestElementComparer _unitTestElementComparer = new UnitTestElementComparer();
     private UnitTestManager _unitTestManager;
 
@@ -64,7 +64,7 @@ namespace Simple.Testing.ReSharperRunner
 
     public Image Icon
     {
-      get { return Resources.Logo; }
+      get { return null; }
     }
 
     public void ExploreSolution(ISolution solution, UnitTestElementConsumer consumer)
@@ -94,10 +94,6 @@ namespace Simple.Testing.ReSharperRunner
 
       if (Equals(typeName, "ContextElement"))
         return ContextElement.ReadFromXml(parent, parentElement, this, Solution);
-      if (Equals(typeName, "BehaviorElement"))
-        return BehaviorElement.ReadFromXml(parent, parentElement, this, Solution);
-      if (Equals(typeName, "BehaviorSpecificationElement"))
-        return BehaviorSpecificationElement.ReadFromXml(parent, parentElement, this, Solution);
       if (Equals(typeName, "ContextSpecificationElement"))
         return ContextSpecificationElement.ReadFromXml(parent, parentElement, this, Solution);
 
@@ -107,7 +103,7 @@ namespace Simple.Testing.ReSharperRunner
 
     public RemoteTaskRunnerInfo GetTaskRunnerInfo()
     {
-      return new RemoteTaskRunnerInfo(typeof(RecursiveMSpecTaskRunner));
+      return new RemoteTaskRunnerInfo(typeof(RecursiveTaskRunner));
     }
 
     public int CompareUnitTestElements(IUnitTestElement x, IUnitTestElement y)
@@ -120,9 +116,9 @@ namespace Simple.Testing.ReSharperRunner
       switch (elementKind)
       {
         case UnitTestElementKind.Test:
-          return element is ContextSpecificationElement || element is BehaviorSpecificationElement;
+          return element is ContextSpecificationElement;
         case UnitTestElementKind.TestContainer:
-          return element is ContextElement || element is BehaviorElement;
+          return element is ContextElement;
       }
 
       return false;
@@ -135,7 +131,7 @@ namespace Simple.Testing.ReSharperRunner
         case UnitTestElementKind.Test:
           return declaredElement.IsSpecification();
         case UnitTestElementKind.TestContainer:
-          return declaredElement.IsContext() || declaredElement.IsBehavior();
+          return declaredElement.IsContext();
       }
 
       return false;

@@ -30,15 +30,9 @@ namespace Simple.Testing.ReSharperRunner.Presentation
       // ReSharper restore SuggestBaseTypeForParameter
                                        ProjectModelElementEnvoy project,
                                        string declaringTypeName,
-                                       string fieldName,
-                                       IEnumerable<string> tags,
-                                       bool isIgnored)
+                                       string fieldName, bool isIgnored)
       : base(provider, psiModuleManager, cacheManager, context, project, declaringTypeName, fieldName, isIgnored || context.Explicit)
     {
-      if (tags != null)
-      {
-        _categories = UnitTestElementCategory.Create(tags);
-      }
     }
 
     public ContextElement Context
@@ -83,7 +77,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 #if RESHARPER_61
                 manager, psiModuleManager, cacheManager,
 #endif
-                project, context, ProjectModelElementEnvoy.Create(project), typeName, methodName, EmptyArray<string>.Instance, isIgnored);
+                project, context, ProjectModelElementEnvoy.Create(project), typeName, methodName);
     }
 
     public override string Id

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simple.Testing.ReSharperRunner</RootNamespace>
     <AssemblyName>Simple.Testing.ReSharperRunner.6.0</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -110,89 +110,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Explorers\ElementHandlers\BehaviorElementHandler.cs">
-      <Link>Explorers\ElementHandlers\BehaviorElementHandler.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Explorers\ElementHandlers\ContextElementHandler.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\ElementHandlers\ContextElementHandler.cs">
       <Link>Explorers\ElementHandlers\ContextElementHandler.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Explorers\ElementHandlers\ContextSpecificationElementHandler.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\ElementHandlers\ContextSpecificationElementHandler.cs">
       <Link>Explorers\ElementHandlers\ContextSpecificationElementHandler.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Explorers\ElementHandlers\IElementHandler.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\ElementHandlers\IElementHandler.cs">
       <Link>Explorers\ElementHandlers\IElementHandler.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Factories\ContextCache.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\ContextCache.cs">
       <Link>Factories\ContextCache.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Factories\UnitTestTaskFactory.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\UnitTestTaskFactory.cs">
       <Link>Factories\UnitTestTaskFactory.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\PsiExtensions.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PsiExtensions.cs">
       <Link>PsiExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.resharperrunner.4.1\runners\notifications\BehaviorSpecificationRemoteTaskNotification.cs">
-      <Link>Runners\Notifications\BehaviorSpecificationRemoteTaskNotification.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.resharperrunner.4.1\runners\notifications\ContextSpecificationRemoteTaskNotification.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\ContextSpecificationRemoteTaskNotification.cs">
       <Link>Runners\Notifications\ContextSpecificationRemoteTaskNotification.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.resharperrunner.4.1\runners\notifications\RemoteTaskNotification.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\RemoteTaskNotification.cs">
       <Link>Runners\Notifications\RemoteTaskNotification.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.resharperrunner.4.1\runners\notifications\RemoteTaskNotificationFactory.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\RemoteTaskNotificationFactory.cs">
       <Link>Runners\Notifications\RemoteTaskNotificationFactory.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Runners\Notifications\SilentRemoteTaskNotification.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\SilentRemoteTaskNotification.cs">
       <Link>Runners\Notifications\SilentRemoteTaskNotification.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Runners\PerContextRunListener.cs">
-      <Link>Runners\PerContextRunListener.cs</Link>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\RecursiveTaskRunner.cs">
+      <Link>Runners\RecursiveTaskRunner.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Runners\RecursiveMSpecTaskRunner.cs">
-      <Link>Runners\RecursiveMSpecTaskRunner.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Runners\VersionCompatibilityChecker.cs">
-      <Link>Runners\VersionCompatibilityChecker.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Tasks\BehaviorSpecificationTask.cs">
-      <Link>Tasks\BehaviorSpecificationTask.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Tasks\BehaviorTask.cs">
-      <Link>Tasks\BehaviorTask.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Tasks\ContextSpecificationTask.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\ContextSpecificationTask.cs">
       <Link>Tasks\ContextSpecificationTask.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Tasks\ContextTask.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\ContextTask.cs">
       <Link>Tasks\ContextTask.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\Tasks\Task.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\Task.cs">
       <Link>Tasks\Task.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.1\UnitTestElementComparer.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\UnitTestElementComparer.cs">
       <Link>UnitTestElementComparer.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.5\MSpecElementNaming.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\MSpecElementNaming.cs">
       <Link>MSpecElementNaming.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.5\PsiExtensions.4.5.cs">
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PsiExtensions.4.5.cs">
       <Link>PsiExtensions.4.5.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.4.5\Runners\ExceptionResultConverter.cs">
-      <Link>Runners\ExceptionResultConverter.cs</Link>
     </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\AssemblyExplorer.cs">
       <Link>Explorers\AssemblyExplorer.cs</Link>
     </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\FileExplorer.cs">
       <Link>Explorers\FileExplorer.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\BehaviorFactory.cs">
-      <Link>Factories\BehaviorFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\BehaviorSpecificationFactory.cs">
-      <Link>Factories\BehaviorSpecificationFactory.cs</Link>
     </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\ContextFactory.cs">
       <Link>Factories\ContextFactory.cs</Link>
@@ -211,8 +184,6 @@
     <Compile Include="MetadataExtensions.cs" />
     <Compile Include="MSpecUnitTestPresenter.cs" />
     <Compile Include="MSpecUnitTestProvider.cs" />
-    <Compile Include="Presentation\BehaviorElement.cs" />
-    <Compile Include="Presentation\BehaviorSpecificationElement.cs" />
     <Compile Include="Presentation\ContextElement.cs" />
     <Compile Include="Presentation\ContextSpecificationElement.cs" />
     <Compile Include="Presentation\Element.cs" />

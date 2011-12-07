@@ -15,7 +15,17 @@
      * and specialize it.
      */
     public class QuerySepcification2
-    {
+	{
+		public Specification it_fails = new QuerySpecification<QueryExample, Product>
+		{
+			On = () => new QueryExample(),
+			When = obj => obj.GetProduct(14),
+			Expect =
+                {
+                    product => product.Id == 13,
+                },
+		};
+
         public Specification it_returns_something_interesting = new QuerySpecification<QueryExample, Product>
         {
             On = () => new QueryExample(),

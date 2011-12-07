@@ -200,36 +200,6 @@ namespace Simple.Testing.ReSharperRunner.Presentation
                };
       }
 
-      if (this is BehaviorElement)
-      {
-        var behavior = this as BehaviorElement;
-        ContextElement context = behavior.Context;
-
-        return new List<UnitTestTask>
-               {
-                 _taskFactory.CreateAssemblyLoadTask(context),
-                 _taskFactory.CreateContextTask(context, explicitElements.Contains(context)),
-                 _taskFactory.CreateBehaviorTask(context, behavior, explicitElements.Contains(behavior))
-               };
-      }
-
-      if (this is BehaviorSpecificationElement)
-      {
-        var behaviorSpecification = this as BehaviorSpecificationElement;
-        BehaviorElement behavior = behaviorSpecification.Behavior;
-        ContextElement context = behavior.Context;
-
-        return new List<UnitTestTask>
-               {
-                 _taskFactory.CreateAssemblyLoadTask(context),
-                 _taskFactory.CreateContextTask(context, explicitElements.Contains(context)),
-                 _taskFactory.CreateBehaviorTask(context, behavior, explicitElements.Contains(behavior)),
-                 _taskFactory.CreateBehaviorSpecificationTask(context,
-                                                              behaviorSpecification,
-                                                              explicitElements.Contains(behaviorSpecification))
-               };
-      }
-
       if (this is ContextElement)
       {
         return EmptyArray<UnitTestTask>.Instance;

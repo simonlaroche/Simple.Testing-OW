@@ -8,32 +8,21 @@ using JetBrains.ReSharper.Psi.Caches;
 using JetBrains.ReSharper.UnitTestFramework;
 using JetBrains.Text;
 
-using Simple.Testing.Utility;
-using Simple.Testing.Utility.Internal;
-
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
   internal class ContextElement : Element
   {
     readonly string _assemblyLocation;
-    readonly string _subject;
 
     public ContextElement(IUnitTestProvider provider,
                           ProjectModelElementEnvoy projectEnvoy,
                           string typeName,
                           string assemblyLocation,
-                          string subject,
-                          ICollection<string> tags,
                           bool isIgnored)
       : base(provider, null, projectEnvoy, typeName, isIgnored)
     {
       _assemblyLocation = assemblyLocation;
-      _subject = subject;
 
-      if (tags != null)
-      {
-        AssignCategories(tags);
-      }
     }
 
     public override string ShortName
@@ -53,17 +42,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 
     public override string GetTitle()
     {
-      return GetSubject() + new CLRTypeName(GetTypeClrName()).ShortName.ToFormat();
-    }
-
-    string GetSubject()
-    {
-      if (String.IsNullOrEmpty(_subject))
-      {
-        return null;
-      }
-
-      return _subject + ", ";
+      return new CLRTypeName(GetTypeClrName()).ShortName;
     }
 
     public override IDeclaredElement GetDeclaredElement()

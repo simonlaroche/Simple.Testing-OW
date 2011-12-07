@@ -71,15 +71,12 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #else
       var contextFactory = new ContextFactory(provider, project, projectEnvoy, assemblyPath, cache);
       var contextSpecificationFactory = new ContextSpecificationFactory(provider, project, projectEnvoy, cache);
-      var behaviorFactory = new BehaviorFactory(provider, project, projectEnvoy, cache);
-      var behaviorSpecificationFactory = new BehaviorSpecificationFactory(provider, project, projectEnvoy);
 #endif
 
       _elementHandlers = new List<IElementHandler>
                          {
                            new ContextElementHandler(contextFactory),
                            new ContextSpecificationElementHandler(contextSpecificationFactory),
-                           new BehaviorElementHandler(behaviorFactory, behaviorSpecificationFactory)
                          };
     }
 

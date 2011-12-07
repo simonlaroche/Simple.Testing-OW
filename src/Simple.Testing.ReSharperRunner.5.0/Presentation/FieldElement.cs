@@ -4,8 +4,6 @@ using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Util;
 using JetBrains.Text;
-using Simple.Testing.Utility;
-using Simple.Testing.Utility.Internal;
 using JetBrains.ReSharper.UnitTestFramework;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
@@ -40,7 +38,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
       return String.Format("{0}{1}{2}",
                            GetTitlePrefix(),
                            String.IsNullOrEmpty(GetTitlePrefix()) ? String.Empty : " ",
-                           FieldName.ToFormat());
+                           FieldName);
     }
 
     public override bool Matches(string filter, IdentifierMatcher matcher)

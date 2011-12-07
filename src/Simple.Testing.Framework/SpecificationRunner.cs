@@ -4,21 +4,46 @@ using System.Reflection;
 
 namespace Simple.Testing.Framework
 {
+	using System.Collections.Generic;
 	using PowerAssert;
 
 	public class SpecificationRunner
     {
-        public RunResult RunSpecifciation(SpecificationToRun spec)
-        {
-            var method = typeof(SpecificationRunner).GetMethod("Run", BindingFlags.NonPublic | BindingFlags.Instance);
-            var tomake = spec.Specification.GetType().GetInterfaces().Single(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(TypedSpecification<>));
-            var generic = method.MakeGenericMethod(tomake.GetGenericArguments()[0]);
-            var result = (RunResult) generic.Invoke(this, new [] {spec.Specification});
-            result.FoundOnMemberInfo = spec.FoundOn;
-            return result;
-        }
+		private readonly ISpecificationRunListener listener;
 
+		public SpecificationRunner(ISpecificationRunListener listener)
+		{
+			this.listener = listener;
+		}
+
+		public IEnumerable<RunResult> RunAssembly(Assembly assembly)
+		{
+			var generator = new RootGenerator(assembly);
+
+
+			return generator.GetSpecifications().Select(RunOneSpecification);
+		}
+
+		public RunResult RunSpecification(SpecificationToRun spec)
+		{
+			return RunOneSpecification(spec);
+		}
+
+		private RunResult RunOneSpecification(SpecificationToRun spec)
+		{
+			var method = typeof (SpecificationRunner).GetMethod("Run", BindingFlags.NonPublic | BindingFlags.Instance);
+			var tomake =
+				spec.Specification.GetType().GetInterfaces().Single(
+					x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof (TypedSpecification<>));
+			var generic = method.MakeGenericMethod(tomake.GetGenericArguments()[0]);
+			var result = (RunResult) generic.Invoke(this, new[] {spec.Specification});
+			result.FoundOnMemberInfo = spec.FoundOn;
+			return result;
+		}
+
+// ReSharper disable UnusedMember.Local
         private RunResult Run<T>(TypedSpecification<T> spec)
+// ReSharper restore UnusedMember.Local
         {
             var result = new RunResult { SpecificationName = spec.GetName()};
             try

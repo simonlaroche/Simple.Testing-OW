@@ -74,9 +74,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
 #else
                                              clazz.CLRName,
 #endif
-                                             field.ShortName,
-                                             clazz.GetTags(),
-                                             field.IsIgnored());
+                                             field.ShortName);
     }
 
     public ContextSpecificationElement CreateContextSpecification(ContextElement context, IMetadataField specification)
@@ -89,9 +87,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                              context,
                                              _projectEnvoy,
                                              specification.DeclaringType.FullyQualifiedName,
-                                             specification.Name,
-                                             specification.DeclaringType.GetTags(),
-                                             specification.IsIgnored());
+                                             specification.Name);
     }
 
     public static ContextSpecificationElement GetOrCreateContextSpecification(MSpecUnitTestProvider provider,
@@ -104,9 +100,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                                                               ContextElement context,
                                                                               ProjectModelElementEnvoy projectEnvoy,
                                                                               string declaringTypeName,
-                                                                              string fieldName,
-                                                                              ICollection<string> tags,
-                                                                              bool isIgnored)
+                                                                              string fieldName)
     {
 #if RESHARPER_6
       var id = ContextSpecificationElement.CreateId(context, fieldName);
@@ -134,9 +128,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                              context,
                                              projectEnvoy,
                                              declaringTypeName,
-                                             fieldName,
-                                             tags,
-                                             isIgnored);
+                                             fieldName, false);
     }
   }
 }

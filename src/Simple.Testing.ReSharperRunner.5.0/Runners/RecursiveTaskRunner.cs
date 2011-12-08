@@ -18,6 +18,7 @@
 		private Type _contextClass;
 		private PerContextRunListener _listener;
 		private RemoteTaskNotificationFactory _taskNotificationFactory = new RemoteTaskNotificationFactory();
+		private SpecificationRunner _runner;
 
 		public RecursiveTaskRunner(IRemoteTaskServer server)
 			: base(server)
@@ -55,7 +56,7 @@
 			}
 
 			_listener = new PerContextRunListener(Server, node.RemoteTask);
-
+			_runner = new SpecificationRunner(_listener);
 			return TaskResult.Success;
 		}
 
@@ -67,8 +68,7 @@
 
 		public override TaskResult Finish(TaskExecutionNode node)
 		{
-			SimpleRunner.RunMember(_contextClass);
-
+			_runner.RunMember(_contextClass);
 			return TaskResult.Success;
 		}
 

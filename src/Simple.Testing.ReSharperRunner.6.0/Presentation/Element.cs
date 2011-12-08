@@ -193,7 +193,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
         return new List<UnitTestTask>
                {
                  _taskFactory.CreateAssemblyLoadTask(context),
-                 _taskFactory.CreateContextTask(context, explicitElements.Contains(context)),
+//                 _taskFactory.CreateContextTask(context, explicitElements.Contains(context)),
                  _taskFactory.CreateContextSpecificationTask(context,
                                                              contextSpecification,
                                                              explicitElements.Contains(contextSpecification))

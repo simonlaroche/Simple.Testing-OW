@@ -11,6 +11,11 @@ namespace Simple.Testing.Framework
     {
 		private readonly ISpecificationRunListener listener;
 
+		public SpecificationRunner()
+		{
+			listener= new EmptySpecificationRunListener();
+		}
+
 		public SpecificationRunner(ISpecificationRunListener listener)
 		{
 			this.listener = listener;
@@ -19,14 +24,34 @@ namespace Simple.Testing.Framework
 		public IEnumerable<RunResult> RunAssembly(Assembly assembly)
 		{
 			var generator = new RootGenerator(assembly);
+			var assemblyInfo = new AssemblyInfo(assembly.FullName, assembly.Location);
 
-
-			return generator.GetSpecifications().Select(RunOneSpecification);
+			listener.OnRunStart();
+			listener.OnAssemblyStart(assemblyInfo);
+			var runResults = generator.GetSpecifications().Select(RunOneSpecification);
+			listener.OnAssemblyEnd(assemblyInfo);
+			listener.OnRunEnd();
+			return runResults;
 		}
+
+		public IEnumerable<RunResult> RunMember(MemberInfo member)
+		{
+			listener.OnRunStart();
+			var generator = new MemberGenerator(member);
+			var runResults = generator.GetSpecifications().Select(RunOneSpecification).ToArray();
+			
+			
+			listener.OnRunEnd();
+
+			return runResults;
+		} 
 
 		public RunResult RunSpecification(SpecificationToRun spec)
 		{
-			return RunOneSpecification(spec);
+			listener.OnRunStart();
+			var runOneSpecification = RunOneSpecification(spec);
+			listener.OnRunEnd();
+			return runOneSpecification;
 		}
 
 		private RunResult RunOneSpecification(SpecificationToRun spec)
@@ -36,8 +61,10 @@ namespace Simple.Testing.Framework
 				spec.Specification.GetType().GetInterfaces().Single(
 					x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof (TypedSpecification<>));
 			var generic = method.MakeGenericMethod(tomake.GetGenericArguments()[0]);
+			listener.OnSpecificationStart(new SpecificationInfo(spec.FoundOn.DeclaringType.Name, spec.FoundOn.Name));
 			var result = (RunResult) generic.Invoke(this, new[] {spec.Specification});
 			result.FoundOnMemberInfo = spec.FoundOn;
+			listener.OnSpecificationEnd(new SpecificationInfo(spec.FoundOn.DeclaringType.Name, spec.FoundOn.Name), result);
 			return result;
 		}
 
@@ -84,6 +111,7 @@ namespace Simple.Testing.Framework
             }
             catch(Exception ex)
             {
+				listener.OnFatalError(ex);
                 result.MarkFailure("When Failed", ex.InnerException);
                 return result;
             }
@@ -109,13 +137,14 @@ namespace Simple.Testing.Framework
                 Finally.InvokeIfNotNull();
             }
             catch (Exception ex)
-            {
+			{
+				listener.OnFatalError(ex);
                 allOk = false;
                 result.Message = "Finally failed";
                 result.Thrown = ex.InnerException;
             }
-            result.Passed = allOk;
-            return result;
+			result.Passed = allOk;
+			return result;
         }
     }
 

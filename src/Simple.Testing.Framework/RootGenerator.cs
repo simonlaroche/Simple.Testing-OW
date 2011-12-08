@@ -39,23 +39,34 @@ namespace Simple.Testing.Framework
 
     public static class TypeReader
     {
-        public static IEnumerable<SpecificationToRun> GetSpecificationsIn(Type t)
-        {
-            foreach (var methodSpec in AllMethodSpecifications(t)) yield return methodSpec;
-            foreach (var fieldSpec in AllFieldSpecifications(t)) yield return fieldSpec;
-        }
-
-		public static IEnumerable<SpecificationToRun> GetSpecificationsIn(MemberInfo info)
+        public static IEnumerable<SpecificationToRun> GetSpecificationsIn(MemberInfo info)
 		{
+			if(info is Type)
+			{
+				foreach (var methodSpec in AllMethodSpecifications((Type) info))
+				{
+					yield return methodSpec;
+				}
+				foreach (var fieldSpec in AllFieldSpecifications((Type) info))
+				{
+					yield return fieldSpec;
+				}
+			}
 			if(info is FieldInfo)
 			{
-				return SpecificationToRuns((FieldInfo) info);
+				foreach ( var spec in SpecificationToRuns((FieldInfo) info))
+				{
+					yield return spec;
+				}
 			}
 			if(info is MethodInfo)
 			{
-				return SpecificationToRuns((MethodInfo)info);
+				 foreach ( var spec in  SpecificationToRuns((MethodInfo)info))
+				{
+					yield return spec;
+				}
 			}
-			return Enumerable.Empty<SpecificationToRun>();
+			
 		}
 
 

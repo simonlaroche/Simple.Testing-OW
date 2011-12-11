@@ -1,15 +1,16 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Xml;
 
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.TaskRunnerFramework;
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.TaskRunnerFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #if RESHARPER_61
-using JetBrains.ReSharper.UnitTestFramework.Elements;
+using resharper::JetBrains.ReSharper.UnitTestFramework.Elements;
 #endif
 
 using Simple.Testing.ReSharperRunner.Presentation;

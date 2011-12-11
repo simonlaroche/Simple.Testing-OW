@@ -1,18 +1,20 @@
+extern alias resharper;
 using System;
 using System.Collections.Generic;
 
-using JetBrains.Application;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.Psi.Tree;
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.Util;
+using resharper::JetBrains.Application;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.Psi.Tree;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.Util;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
+	using Framework;
 
-  internal abstract class Element : UnitTestElement
+	internal abstract class Element : UnitTestElement
   {
     readonly string _declaringTypeName;
     readonly ProjectModelElementEnvoy _projectEnvoy;
@@ -93,7 +95,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 
     public override UnitTestElementDisposition GetDisposition()
     {
-      IDeclaredElement element = GetDeclaredElement();
+		IDeclaredElement element = GetDeclaredElement();
       if (element == null || !element.IsValid())
       {
         return UnitTestElementDisposition.InvalidDisposition;
@@ -107,7 +109,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
           {
             locations.Add(new UnitTestElementLocation(file.ProjectFile,
                                                       declaration.GetNavigationRange().TextRange,
-                                                      declaration.GetDocumentRange().TextRange));
+                                                      resharper::JetBrains.ReSharper.Psi.Tree.ElementExtensions.GetDocumentRange(declaration).TextRange));
           }
         });
 

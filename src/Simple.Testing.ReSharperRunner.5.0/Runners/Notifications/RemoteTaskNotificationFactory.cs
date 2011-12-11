@@ -1,6 +1,7 @@
-﻿namespace Simple.Testing.ReSharperRunner.Runners.Notifications
+﻿extern alias resharper;
+namespace Simple.Testing.ReSharperRunner.Runners.Notifications
 {
-	using JetBrains.ReSharper.TaskRunnerFramework;
+	using resharper::JetBrains.ReSharper.TaskRunnerFramework;
 	using Tasks;
 
 

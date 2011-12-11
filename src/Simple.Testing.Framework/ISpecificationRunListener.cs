@@ -2,53 +2,6 @@
 {
 	using System;
 
-	public interface ISpecificationRunListener
-	{
-		void OnAssemblyStart(AssemblyInfo assembly);
-		void OnAssemblyEnd(AssemblyInfo assembly);
-		void OnRunStart();
-		void OnRunEnd();
-		void OnSpecificationStart(SpecificationInfo specification);
-		void OnSpecificationEnd(SpecificationInfo specification, RunResult result);
-		void OnFatalError(Exception exception);
-	}
-
-	public class EmptySpecificationRunListener : ISpecificationRunListener
-	{
-		public void OnAssemblyStart(AssemblyInfo assembly)
-		{
-		}
-
-		public void OnAssemblyEnd(AssemblyInfo assembly)
-		{
-		}
-
-		public void OnRunStart()
-		{
-		}
-
-		public void OnRunEnd()
-		{
-		}
-
-		public void OnSpecificationStart(SpecificationInfo specification)
-		{
-		}
-
-		public void OnSpecificationEnd(SpecificationInfo specification, RunResult result)
-		{
-		}
-
-		public void OnFatalError(Exception exception)
-		{
-		}
-	}
-
-	public interface ISpecificationResultProvider
-	{
-		bool FailureOccurred { get; }
-	}
-
 
 	[Serializable]
 	public class AssemblyInfo

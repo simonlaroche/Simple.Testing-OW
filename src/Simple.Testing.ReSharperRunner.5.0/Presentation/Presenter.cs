@@ -1,19 +1,20 @@
-﻿using System.Drawing;
+﻿extern alias resharper;
+using System.Drawing;
 
-using JetBrains.CommonControls;
-using JetBrains.ReSharper.Features.Common.TreePsiBrowser;
+using resharper::JetBrains.CommonControls;
+using resharper::JetBrains.ReSharper.Features.Common.TreePsiBrowser;
 #if RESHARPER_5
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.ReSharper.UnitTestFramework.UI;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework.UI;
 #else
-using JetBrains.ReSharper.UnitTestExplorer;
+using resharper::JetBrains.ReSharper.UnitTestExplorer;
 #endif
 #if RESHARPER_6
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.ReSharper.UnitTestFramework.UI;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework.UI;
 #endif
-using JetBrains.TreeModels;
-using JetBrains.UI.TreeView;
+using resharper::JetBrains.TreeModels;
+using resharper::JetBrains.UI.TreeView;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
@@ -26,7 +27,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 		}
 
 		protected virtual void PresentContext(ContextElement element,
-											  IPresentableItem item,
+											 IPresentableItem item,
 											  TreeModelNode modelNode,
 											  PresentationState state)
 		{
@@ -51,7 +52,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 			SetImage(item, state, type);
 		}
 
-		static void SetTextColor(IPresentableItem item, Element element)
+		static void SetTextColor(resharper::JetBrains.CommonControls.IPresentableItem item, Element element)
 		{
 			if (element.IsExplicit)
 			{

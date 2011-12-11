@@ -1,10 +1,12 @@
+extern alias resharper;
 using System;
 using System.Linq;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Util;
-using JetBrains.Text;
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Util;
+using resharper::JetBrains.Text;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
@@ -58,7 +60,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
         return null;
       }
 
-      return declaredType.EnumerateMembers(FieldName, false)
+      return TypeElementUtil.EnumerateMembers( declaredType,FieldName, false)
         .Where(member => member as IField != null)
         .FirstOrDefault();
     }

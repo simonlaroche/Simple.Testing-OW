@@ -1,7 +1,8 @@
-﻿using System.Reflection;
+﻿extern alias resharper;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
-using JetBrains.UI.Application.PluginSupport;
+using resharper::JetBrains.UI.Application.PluginSupport;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -21,6 +22,6 @@ using JetBrains.UI.Application.PluginSupport;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
 [assembly: Guid("a0468d17-75ce-44fd-a346-534cacd98ecc")]
-[assembly: PluginTitle("Simple.Testing Runner for ReSharper 5.0")]
-[assembly: PluginDescription("Allows ReSharper 5.0 to run Simple.Testing as unit tests")]
-[assembly: PluginVendor("Simple.Testing")]
+//[assembly: PluginTitleAttribute("Simple.Testing Runner for ReSharper 5.0")]
+//[assembly: PluginDescriptionAttribute("Allows ReSharper 5.0 to run Simple.Testing as unit tests")]
+//[assembly: PluginVendorAttribute("Simple.Testing")]

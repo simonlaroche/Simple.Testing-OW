@@ -1,12 +1,14 @@
-﻿using JetBrains.ReSharper.TaskRunnerFramework;
+﻿extern alias resharper;
+using resharper::JetBrains.ReSharper.TaskRunnerFramework;
 #if RESHARPER_5
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #else
-using JetBrains.ReSharper.UnitTestExplorer;
+
+using resharper::JetBrains.ReSharper.UnitTestExplorer;
 #endif
 
 #if RESHARPER_6
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #endif
 
 using Simple.Testing.ReSharperRunner.Presentation;

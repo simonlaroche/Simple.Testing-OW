@@ -1,13 +1,14 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 using System.Drawing;
 
-using JetBrains.CommonControls;
-using JetBrains.ReSharper.Features.Common.TreePsiBrowser;
-using JetBrains.ReSharper.UnitTestExplorer;
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.ReSharper.UnitTestFramework.UI;
-using JetBrains.TreeModels;
-using JetBrains.UI.TreeView;
+using resharper::JetBrains.CommonControls;
+using resharper::JetBrains.ReSharper.Features.Common.TreePsiBrowser;
+using resharper::JetBrains.ReSharper.UnitTestExplorer;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework.UI;
+using resharper::JetBrains.TreeModels;
+using resharper::JetBrains.UI.TreeView;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {

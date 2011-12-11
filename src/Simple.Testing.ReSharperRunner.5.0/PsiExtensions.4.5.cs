@@ -1,6 +1,7 @@
-﻿using JetBrains.Application.Progress;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Search;
+﻿extern alias resharper;
+using resharper::JetBrains.Application.Progress;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Search;
 
 namespace Simple.Testing.ReSharperRunner
 {
@@ -39,7 +40,7 @@ namespace Simple.Testing.ReSharperRunner
 			finder.FindInheritors(clazz,
 								  searchDomain,
 								  findResult.Consumer,
-								  NullProgressIndicator.Instance);
+								  resharper::JetBrains.Application.Progress.NullProgressIndicator.Instance);
 
 			return findResult.Found;
 		}

@@ -49,6 +49,7 @@ namespace DocGeneratorExample
             }
             Console.WriteLine(new string('-', 80));
             Console.WriteLine();
+        	Console.ReadLine();
         }
     }
 }

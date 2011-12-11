@@ -1,16 +1,17 @@
+extern alias resharper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using JetBrains.Application;
-using JetBrains.Application.Progress;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.Psi.Tree;
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.Application;
+using resharper::JetBrains.Application.Progress;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.Psi.Tree;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #if RESHARPER_61
-using JetBrains.ReSharper.UnitTestFramework.Elements;
+using resharper::JetBrains.ReSharper.UnitTestFramework.Elements;
 #endif
 
 using Simple.Testing.ReSharperRunner.Explorers.ElementHandlers;
@@ -55,7 +56,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #if RESHARPER_6
       IProject project = file.GetSourceFile().ToProjectFile().GetProject();
 #else
-      IProject project = file.ProjectFile.GetProject();
+      resharper::JetBrains.ProjectModel.IProject project = file.ProjectFile.GetProject();
 #endif
       var projectEnvoy = new ProjectModelElementEnvoy(project);
       string assemblyPath = UnitTestManager.GetOutputAssemblyPath(project).FullPath;

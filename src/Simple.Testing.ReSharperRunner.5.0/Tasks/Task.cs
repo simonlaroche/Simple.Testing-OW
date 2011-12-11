@@ -1,7 +1,7 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 using System.Xml;
-
-using JetBrains.ReSharper.TaskRunnerFramework;
+using resharper::JetBrains.ReSharper.TaskRunnerFramework;
 
 namespace Simple.Testing.ReSharperRunner.Tasks
 {

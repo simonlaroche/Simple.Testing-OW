@@ -1,10 +1,11 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 using System.Collections.Generic;
 
 #if RESHARPER_5 || RESHARPER_6
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #else
-using JetBrains.ReSharper.UnitTestExplorer;
+using resharper::JetBrains.ReSharper.UnitTestExplorer;
 #endif
 using Simple.Testing.ReSharperRunner.Presentation;
 

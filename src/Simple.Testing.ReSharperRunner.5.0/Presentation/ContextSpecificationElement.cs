@@ -1,7 +1,8 @@
+extern alias resharper;
 using System.Collections.Generic;
 
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
@@ -11,7 +12,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
                                        // ReSharper disable SuggestBaseTypeForParameter
                                        ContextElement context,
                                        // ReSharper restore SuggestBaseTypeForParameter
-                                       ProjectModelElementEnvoy project,
+										ProjectModelElementEnvoy project,
                                        string declaringTypeName,
                                        string fieldName,
                                        bool isIgnored)

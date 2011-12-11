@@ -3,7 +3,9 @@ using System.Linq.Expressions;
 
 namespace Simple.Testing.Framework.Tests
 {
-    public class PartialApplicationVisitorSpecifications
+	using NUnit.Framework;
+
+	public class PartialApplicationVisitorSpecifications
     {
         public Specification can_exchange_parameters_for_values = new QuerySpecification<PartialApplicationVisitor, Expression<Func<bool>>>
                                                                       { 
@@ -15,4 +17,5 @@ namespace Simple.Testing.Framework.Tests
                                                                               }
                                                                       };
     }
+
 }

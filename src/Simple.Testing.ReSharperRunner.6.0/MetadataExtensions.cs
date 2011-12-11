@@ -1,10 +1,11 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-using JetBrains.Metadata.Reader.API;
-using JetBrains.Util;
+using resharper::JetBrains.Metadata.Reader.API;
+using resharper::JetBrains.Util;
 
 namespace Simple.Testing.ReSharperRunner
 {

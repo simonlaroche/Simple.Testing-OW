@@ -1,11 +1,12 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Naming.Elements;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Naming.Elements;
 
 namespace Simple.Testing.ReSharperRunner
 {
-	[NamedElementsBag(null)]
+	[NamedElementsBagAttribute(null)]
 	public class MSpecElementNaming : ElementKindOfElementType
 	{
 		public static readonly IElementKind Behavior = new MSpecElementNaming("Machine.Specifications_Behavior",
@@ -41,8 +42,15 @@ namespace Simple.Testing.ReSharperRunner
 																			"Machine.Specifications local",
 																			IsLocal);
 
-		protected MSpecElementNaming(string name, string presentableName, Func<IDeclaredElement, bool> isApplicable)
-			: base(name, presentableName, isApplicable)
+		protected MSpecElementNaming(string name, string presentableName,
+#if !RESHARPER_6
+			resharper::System.Func<IDeclaredElement, bool> isApplicable
+#else
+			System.Func<IDeclaredElement, bool> isApplicable
+#endif
+)
+			: base(name, presentableName,
+			isApplicable)
 		{
 		}
 

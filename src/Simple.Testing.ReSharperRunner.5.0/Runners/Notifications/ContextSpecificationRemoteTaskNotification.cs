@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿extern alias resharper;
+using System.Collections.Generic;
 
-using JetBrains.ReSharper.TaskRunnerFramework;
+using resharper::JetBrains.ReSharper.TaskRunnerFramework;
 
 namespace Simple.Testing.ReSharperRunner.Runners.Notifications
 {

@@ -6,7 +6,9 @@ namespace Simple.Testing.Framework
 	using System.Linq.Expressions;
 	using Linq;
 
-	public sealed class PartialApplicationVisitor : ExpressionVisitor
+// ReSharper disable RedundantNameQualifier
+	public sealed class PartialApplicationVisitor : Simple.Testing.Framework.Linq.ExpressionVisitor
+// ReSharper restore RedundantNameQualifier
     {
         private readonly ParameterExpression _paramExprToReplace;
         private readonly ConstantExpression _valuetoApply;

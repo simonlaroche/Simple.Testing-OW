@@ -14,16 +14,17 @@ namespace Simple.Testing.Framework
             return RunAllInAssembly(assembly);
         }
 
-		public static IEnumerable<RunResult> RunMember(MemberInfo memberInfo)
+		public static RunResult RunMember(MemberInfo memberInfo)
 		{
 			var generator = new MemberGenerator(memberInfo); ;
-			var runner = new SpecificationRunner(new EmptySpecificationRunListener());
-			return generator.GetSpecifications().Select(runner.RunSpecification);
+			var runner = new SpecificationRunner();
+			var specificationToRun = generator.GetSpecifications().First();
+			return runner.RunSpecification(specificationToRun);
 		} 
 
         public static IEnumerable<RunResult> RunAllInAssembly(Assembly assembly)
         {
-            var runner = new SpecificationRunner(new EmptySpecificationRunListener());
+            var runner = new SpecificationRunner();
         	return runner.RunAssembly(assembly);
         }
     }

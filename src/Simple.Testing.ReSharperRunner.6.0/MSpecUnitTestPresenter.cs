@@ -1,7 +1,8 @@
-using JetBrains.CommonControls;
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.TreeModels;
-using JetBrains.UI.TreeView;
+extern alias resharper;
+using resharper::JetBrains.CommonControls;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.TreeModels;
+using resharper::JetBrains.UI.TreeView;
 
 using Simple.Testing.ReSharperRunner.Presentation;
 

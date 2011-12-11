@@ -1,4 +1,4 @@
 ﻿name: Simple.Testing
-build: msbuild;profile=net40
-depends: openwrap anchored content
+build: msbuild;profile=net35
 depends: nunit
+depends: openwrap anchored

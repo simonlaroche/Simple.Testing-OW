@@ -1,4 +1,5 @@
-﻿namespace Simple.Testing.ReSharperRunner.Runners
+﻿extern alias resharper;
+namespace Simple.Testing.ReSharperRunner.Runners
 {
 	using System;
 	using System.Collections.Generic;
@@ -7,7 +8,7 @@
 	using System.Linq;
 	using System.Reflection;
 	using Framework;
-	using JetBrains.ReSharper.TaskRunnerFramework;
+	using resharper::JetBrains.ReSharper.TaskRunnerFramework;
 	using Notifications;
 	using Tasks;
 
@@ -19,6 +20,8 @@
 		private PerContextRunListener _listener;
 		private RemoteTaskNotificationFactory _taskNotificationFactory = new RemoteTaskNotificationFactory();
 		private SpecificationRunner _runner;
+		private MemberInfo _member;
+		private TaskResult _taskResult;
 
 		public RecursiveTaskRunner(IRemoteTaskServer server)
 			: base(server)
@@ -27,7 +30,7 @@
 
 		public override TaskResult Start(TaskExecutionNode node)
 		{
-			var task = (ContextTask)node.RemoteTask;
+			var task = (ContextSpecificationTask)node.RemoteTask;
 
 			_contextAssembly = LoadContextAssembly(task);
 			if (_contextAssembly == null)
@@ -55,8 +58,22 @@
 				return TaskResult.Error;
 			}
 
-			_listener = new PerContextRunListener(Server, node.RemoteTask);
-			_runner = new SpecificationRunner(_listener);
+
+			_member = _contextClass.GetField(task.SpecificationFieldName, BindingFlags.Instance | BindingFlags.Public);
+			
+			if(_member == null)
+			{
+				Server.TaskExplain(task,
+								   String.Format("Could not find specification '{0}' in type {1} from assembly {2}.",
+									task.SpecificationFieldName,			 
+								   task.ContextTypeName,
+												 task.AssemblyLocation));
+				Server.TaskError(node.RemoteTask, "Could not find specification");
+				return TaskResult.Error;
+			}
+
+			Server.TaskStarting(task);
+			
 			return TaskResult.Success;
 		}
 
@@ -68,16 +85,56 @@
 
 		public override TaskResult Finish(TaskExecutionNode node)
 		{
-			_runner.RunMember(_contextClass);
-			return TaskResult.Success;
+			return _taskResult;
 		}
 
 		public override void ExecuteRecursive(TaskExecutionNode node)
 		{
-			foreach (var executionNode in FlattenChildren(node))
+			var remoteTask = node.RemoteTask;
+			Server.TaskProgress(remoteTask, null);
+
+			var runResult = SimpleRunner.RunMember(_member);
+
+			
+			Server.TaskOutput(remoteTask, runResult.Message, TaskOutputType.STDOUT);
+		
+
+			var taskResult = TaskResult.Success;
+
+			var message = string.Empty;
+			
+			if (!runResult.Passed)
 			{
-				RegisterRemoteTaskNotifications(executionNode);
+				if (runResult.Thrown != null)
+				{
+						message += runResult.Message + Environment.NewLine;
+						Server.TaskExplain(remoteTask, runResult.Message);
+						Server.TaskException(remoteTask, new[] { new TaskException(runResult.Thrown) });
+				}
+					foreach (var expectation in runResult.Expectations.Where(e => !e.Passed))
+					{
+						message += expectation.Text + Environment.NewLine;
+						Server.TaskExplain(remoteTask, expectation.Text);
+						Server.TaskException(remoteTask, new[] { new TaskException(expectation.Exception) });
+					}
+				
+				taskResult = TaskResult.Exception;
 			}
+			else
+			{
+			
+				foreach (var expectation in runResult.Expectations)
+					{
+						message += expectation.Text + Environment.NewLine;
+						Server.TaskExplain(remoteTask, expectation.Text);
+					
+					}
+				
+				
+			}
+
+			Server.TaskFinished(remoteTask, message, taskResult);
+			_taskResult = taskResult;
 		}
 
 		void RegisterRemoteTaskNotifications(TaskExecutionNode node)
@@ -143,7 +200,7 @@
 		}
 	}
 
-	public class PerContextRunListener : ISpecificationRunListener
+	public class PerContextRunListener
 	{
 		readonly RemoteTask _contextTask;
 		readonly IRemoteTaskServer _server;

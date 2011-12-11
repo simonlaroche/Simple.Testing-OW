@@ -1,4 +1,5 @@
-using JetBrains.ReSharper.TaskRunnerFramework;
+extern alias resharper;
+using resharper::JetBrains.ReSharper.TaskRunnerFramework;
 
 namespace Simple.Testing.ReSharperRunner.Tasks
 {

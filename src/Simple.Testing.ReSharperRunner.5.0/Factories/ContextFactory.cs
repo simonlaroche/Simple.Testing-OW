@@ -1,13 +1,14 @@
+extern alias resharper;
 using System.Collections.Generic;
 using System.Linq;
 
-using JetBrains.Metadata.Reader.API;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.Metadata.Reader.API;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #if RESHARPER_61
-using JetBrains.ReSharper.UnitTestFramework.Elements;
+using resharper::JetBrains.ReSharper.UnitTestFramework.Elements;
 #endif
 
 using Simple.Testing.ReSharperRunner.Presentation;

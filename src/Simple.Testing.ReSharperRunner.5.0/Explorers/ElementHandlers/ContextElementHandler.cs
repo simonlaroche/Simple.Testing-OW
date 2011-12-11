@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿extern alias resharper;
+using System.Collections.Generic;
 
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Tree;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Tree;
 #if RESHARPER_5 || RESHARPER_6
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #else
-using JetBrains.ReSharper.UnitTestExplorer;
+using resharper::JetBrains.ReSharper.UnitTestExplorer;
 #endif
 
 using Simple.Testing.ReSharperRunner.Factories;
@@ -41,7 +42,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers.ElementHandlers
 #if RESHARPER_6
     public IEnumerable<UnitTestElementDisposition> AcceptElement(ITreeNode element, IFile file)
 #else
-		public IEnumerable<UnitTestElementDisposition> AcceptElement(IElement element, IFile file)
+		public IEnumerable<resharper::JetBrains.ReSharper.UnitTestFramework.UnitTestElementDisposition> AcceptElement(IElement element, IFile file)
 #endif
 		{
 			IDeclaration declaration = (IDeclaration)element;
@@ -52,14 +53,19 @@ namespace Simple.Testing.ReSharperRunner.Explorers.ElementHandlers
 				yield break;
 			}
 
-			yield return new UnitTestElementDisposition(contextElement,
+			yield return new resharper::JetBrains.ReSharper.UnitTestFramework.UnitTestElementDisposition(contextElement,
 #if RESHARPER_6
-                                                  file.GetSourceFile().ToProjectFile(),
+				resharper::JetBrains.ReSharper.Psi.PsiSourceFileExtensions.ToProjectFile(file.GetSourceFile()),
+                                                  
 #else
  file.ProjectFile,
 #endif
  declaration.GetNavigationRange().TextRange,
-														declaration.GetDocumentRange().TextRange);
+#if RESHARPER_6
+		resharper::JetBrains.ReSharper.Psi.Tree.DeclarationExtensions.GetNameDocumentRange(declaration).TextRange);
+#else
+ ElementExtensions.GetDocumentRange(declaration).TextRange);
+#endif
 		}
 
 #if RESHARPER_6

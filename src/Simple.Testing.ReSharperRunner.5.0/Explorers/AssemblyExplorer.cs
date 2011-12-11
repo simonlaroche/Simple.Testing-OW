@@ -1,16 +1,17 @@
+extern alias resharper;
 using System;
 using System.Linq;
 
-using JetBrains.Application;
-using JetBrains.Metadata.Reader.API;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.Application;
+using resharper::JetBrains.Metadata.Reader.API;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
 #if RESHARPER_61
-using JetBrains.ReSharper.UnitTestFramework.Elements;
+using resharper::JetBrains.ReSharper.UnitTestFramework.Elements;
 #endif
-using JetBrains.Util;
+using resharper::JetBrains.Util;
 
 using Simple.Testing.ReSharperRunner.Factories;
 
@@ -74,12 +75,12 @@ namespace Simple.Testing.ReSharperRunner.Explorers
         return;
       }
 
-      CollectionUtil.ForEach(_assembly.GetTypes().Where(type => type.IsContext()), type =>
+      resharper::JetBrains.Util.CollectionUtil.ForEach(_assembly.GetTypes().Where(type => type.IsContext()), type =>
       {
         var contextElement = _contextFactory.CreateContext(type);
         _consumer(contextElement);
 
-        CollectionUtil.ForEach(type
+        resharper::JetBrains.Util.CollectionUtil.ForEach(type
                    	.GetSpecifications(), x => _consumer(_contextSpecificationFactory.CreateContextSpecification(contextElement, x)));
       });
     }

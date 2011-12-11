@@ -1,16 +1,17 @@
+extern alias resharper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml;
 
-using JetBrains.Application;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.Psi.Tree;
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.Util;
+using resharper::JetBrains.Application;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.Psi.Tree;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.Util;
 
 using Simple.Testing.ReSharperRunner.Factories;
 

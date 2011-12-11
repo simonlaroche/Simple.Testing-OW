@@ -1,12 +1,13 @@
-﻿using System;
+﻿extern alias resharper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using JetBrains.Metadata.Reader.API;
+using resharper::JetBrains.Metadata.Reader.API;
 #if RESHARPER_6
-using CLRTypeName = JetBrains.ReSharper.Psi.ClrTypeName;
+using CLRTypeName = resharper::JetBrains.ReSharper.Psi.ClrTypeName;
 #else
-using JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi;
 #endif
 
 namespace Simple.Testing.ReSharperRunner

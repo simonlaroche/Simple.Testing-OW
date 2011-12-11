@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿extern alias resharper;
+using System.Collections.Generic;
 
-using JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi;
 
 using Simple.Testing.ReSharperRunner.Presentation;
 

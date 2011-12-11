@@ -1,12 +1,13 @@
+extern alias resharper;
 using System;
 using System.Collections.Generic;
 
-using JetBrains.Application;
-using JetBrains.ProjectModel;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Caches;
-using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.Text;
+using resharper::JetBrains.Application;
+using resharper::JetBrains.ProjectModel;
+using resharper::JetBrains.ReSharper.Psi;
+using resharper::JetBrains.ReSharper.Psi.Caches;
+using resharper::JetBrains.ReSharper.UnitTestFramework;
+using resharper::JetBrains.Text;
 
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
@@ -35,17 +36,17 @@ namespace Simple.Testing.ReSharperRunner.Presentation
       get { return _assemblyLocation; }
     }
 
-    public override bool Matches(string filter, IdentifierMatcher matcher)
+    public override bool Matches(string filter, resharper::JetBrains.Text.IdentifierMatcher matcher)
     {
       return matcher.Matches(GetTypeClrName());
     }
 
     public override string GetTitle()
     {
-      return new CLRTypeName(GetTypeClrName()).ShortName;
+      return new resharper::JetBrains.ReSharper.Psi.CLRTypeName(GetTypeClrName()).ShortName;
     }
 
-    public override IDeclaredElement GetDeclaredElement()
+    public override resharper::JetBrains.ReSharper.Psi.IDeclaredElement GetDeclaredElement()
     {
       ISolution solution = GetSolution();
       if (solution == null)
@@ -53,7 +54,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
         return null;
       }
 
-      using (ReadLockCookie.Create())
+      using (resharper::JetBrains.Application.ReadLockCookie.Create())
       {
         IDeclarationsScope scope = DeclarationsScopeFactory.SolutionScope(solution, false);
         IDeclarationsCache cache = PsiManager.GetInstance(solution).GetDeclarationsCache(scope, true);

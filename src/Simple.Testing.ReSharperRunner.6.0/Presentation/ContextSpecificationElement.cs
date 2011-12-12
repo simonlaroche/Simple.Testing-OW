@@ -21,7 +21,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 
 	internal class ContextSpecificationElement : FieldElement
   {
-		public ContextSpecificationElement(MSpecUnitTestProvider provider,
+		public ContextSpecificationElement(TestProvider provider,
                                        PsiModuleManager psiModuleManager,
                                        CacheManager cacheManager, 
       // ReSharper disable SuggestBaseTypeForParameter
@@ -49,7 +49,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 			get { return Enumerable.Empty<UnitTestElementCategory>(); }
 		}
 
-		public static IUnitTestElement ReadFromXml(XmlElement parent, IUnitTestElement parentElement, MSpecUnitTestProvider provider, ISolution solution
+		public static IUnitTestElement ReadFromXml(XmlElement parent, IUnitTestElement parentElement, TestProvider provider, ISolution solution
 #if RESHARPER_61
       , IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager
 #endif

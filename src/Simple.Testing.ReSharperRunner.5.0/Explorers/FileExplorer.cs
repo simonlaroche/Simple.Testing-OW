@@ -29,7 +29,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers
     readonly IFile _file;
     readonly CheckForInterrupt _interrupted;
 
-    public FileExplorer(MSpecUnitTestProvider provider,
+    public FileExplorer(TestProvider provider,
 #if RESHARPER_61
                         IUnitTestElementManager manager,
                         PsiModuleManager psiModuleManager,
@@ -54,7 +54,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers
       _interrupted = interrupted;
 
 #if RESHARPER_6
-      IProject project = file.GetSourceFile().ToProjectFile().GetProject();
+      IProject project =  PsiSourceFileExtensions.ToProjectFile(file.GetSourceFile()).GetProject();
 #else
       resharper::JetBrains.ProjectModel.IProject project = file.ProjectFile.GetProject();
 #endif

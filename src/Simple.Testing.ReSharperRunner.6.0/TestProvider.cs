@@ -24,17 +24,17 @@ namespace Simple.Testing.ReSharperRunner
 	using Runners;
 
 	[UnitTestProvider]
-  public class MSpecUnitTestProvider : IUnitTestProvider
+  public class TestProvider : IUnitTestProvider
   {
     const string ProviderId = "Simple.Testing";
     readonly UnitTestElementComparer _unitTestElementComparer = new UnitTestElementComparer();
     private UnitTestManager _unitTestManager;
 
 #if RESHARPER_61
-    public MSpecUnitTestProvider()
+    public TestProvider()
     {
 #else
-    public MSpecUnitTestProvider(ISolution solution, PsiModuleManager psiModuleManager, CacheManager cacheManager)
+    public TestProvider(ISolution solution, PsiModuleManager psiModuleManager, CacheManager cacheManager)
     {
       Solution = solution;
       PsiModuleManager = psiModuleManager;

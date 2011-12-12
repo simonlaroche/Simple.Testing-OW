@@ -38,14 +38,14 @@ namespace Simple.Testing.ReSharperRunner
 	using Runners;
 
 	[UnitTestProviderAttribute]
-  internal class MSpecUnitTestProvider : resharper::JetBrains.ReSharper.UnitTestFramework.IUnitTestProvider
+  internal class TestProvider : resharper::JetBrains.ReSharper.UnitTestFramework.IUnitTestProvider
   {
     const string ProviderId = "Simple.Testing";
     static readonly Presenter Presenter = new Presenter();
     readonly UnitTestTaskFactory _taskFactory = new UnitTestTaskFactory(ProviderId);
     readonly UnitTestElementComparer _unitTestElementComparer = new UnitTestElementComparer();
 
-    public MSpecUnitTestProvider()
+    public TestProvider()
     {
       Debug.Listeners.Add(new DefaultTraceListener());
     }
@@ -143,7 +143,7 @@ namespace Simple.Testing.ReSharperRunner
         return EmptyArray<UnitTestTask>.Instance;
       }
 
-      throw new ArgumentException(String.Format("Element is not a Machine.Specifications element: '{0}'", element));
+      throw new ArgumentException(String.Format("Element is not a Simple.Testing element: '{0}'", element));
     }
 
     public int CompareUnitTestElements(UnitTestElement x, UnitTestElement y)

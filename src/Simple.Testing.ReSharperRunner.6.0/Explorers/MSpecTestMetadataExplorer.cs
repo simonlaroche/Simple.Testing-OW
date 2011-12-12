@@ -11,9 +11,9 @@ using resharper::JetBrains.ReSharper.UnitTestFramework.Elements;
 namespace Simple.Testing.ReSharperRunner.Explorers
 {
   [MetadataUnitTestExplorer]
-  public class MSpecTestMetadataExplorer : IUnitTestMetadataExplorer
+  public class TestMetadataExplorer : IUnitTestMetadataExplorer
   {
-    readonly MSpecUnitTestProvider _provider;
+    readonly TestProvider _provider;
 #if RESHARPER_61
     readonly IUnitTestElementManager _manager;
     readonly PsiModuleManager _psiModuleManager;
@@ -21,13 +21,13 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #endif
 
 #if RESHARPER_61
-    public MSpecTestMetadataExplorer(MSpecUnitTestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager)
+    public TestMetadataExplorer(TestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager)
     {
       _manager = manager;
       _psiModuleManager = psiModuleManager;
       _cacheManager = cacheManager;
 #else
-    public MSpecTestMetadataExplorer(MSpecUnitTestProvider provider)
+    public TestMetadataExplorer(TestProvider provider)
     {
 #endif
       _provider = provider;

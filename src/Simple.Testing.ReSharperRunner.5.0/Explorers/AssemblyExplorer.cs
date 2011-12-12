@@ -27,7 +27,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers
     readonly ContextFactory _contextFactory;
     readonly ContextSpecificationFactory _contextSpecificationFactory;
 
-    public AssemblyExplorer(MSpecUnitTestProvider provider,
+    public AssemblyExplorer(TestProvider provider,
 #if RESHARPER_61
                             IUnitTestElementManager manager,
                             PsiModuleManager psiModuleManager,

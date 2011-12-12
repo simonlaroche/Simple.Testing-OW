@@ -11,9 +11,9 @@ using resharper::JetBrains.ReSharper.UnitTestFramework.Elements;
 namespace Simple.Testing.ReSharperRunner.Explorers
 {
   [FileUnitTestExplorer] 
-  public class MspecTestFileExplorer : IUnitTestFileExplorer
+  public class TestFileExplorer : IUnitTestFileExplorer
   {
-    readonly MSpecUnitTestProvider _provider;
+    readonly TestProvider _provider;
 #if RESHARPER_61
     readonly IUnitTestElementManager _manager;
     readonly PsiModuleManager _psiModuleManager;
@@ -21,13 +21,13 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #endif
 
 #if RESHARPER_61
-    public MspecTestFileExplorer(MSpecUnitTestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager)
+    public TestFileExplorer(UnitTestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager)
     {
       _manager = manager;
       _psiModuleManager = psiModuleManager;
       _cacheManager = cacheManager;
 #else
-    public MspecTestFileExplorer(MSpecUnitTestProvider provider)
+    public TestFileExplorer(TestProvider provider)
     {
 #endif
       _provider = provider;
@@ -37,7 +37,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers
     {
       if ((psiFile.Language.Name == "CSHARP") || (psiFile.Language.Name == "VBASIC"))
       {
-        psiFile.ProcessDescendants(new FileExplorer(_provider,
+		  RecursiveElementProcessorExtensions.ProcessDescendants(psiFile, new FileExplorer(_provider,
 #if RESHARPER_61
           _manager, _psiModuleManager, _cacheManager, 
 #endif

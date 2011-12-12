@@ -19,7 +19,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
 	internal class ContextSpecificationFactory
   {
     readonly ProjectModelElementEnvoy _projectEnvoy;
-    readonly MSpecUnitTestProvider _provider;
+    readonly TestProvider _provider;
     readonly ContextCache _cache;
     readonly IProject _project;
 #if RESHARPER_61
@@ -29,13 +29,13 @@ namespace Simple.Testing.ReSharperRunner.Factories
 #endif
 
 #if RESHARPER_61
-    public ContextSpecificationFactory(MSpecUnitTestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager, IProject project, ProjectModelElementEnvoy projectEnvoy, ContextCache cache)
+    public ContextSpecificationFactory(TestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager, IProject project, ProjectModelElementEnvoy projectEnvoy, ContextCache cache)
     {
       _manager = manager;
       _psiModuleManager = psiModuleManager;
       _cacheManager = cacheManager;
 #else
-    public ContextSpecificationFactory(MSpecUnitTestProvider provider, IProject project, ProjectModelElementEnvoy projectEnvoy, ContextCache cache)
+    public ContextSpecificationFactory(TestProvider provider, IProject project, ProjectModelElementEnvoy projectEnvoy, ContextCache cache)
     {
 #endif
       _provider = provider;
@@ -91,7 +91,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                              specification.Name);
     }
 
-    public static ContextSpecificationElement GetOrCreateContextSpecification(MSpecUnitTestProvider provider,
+    public static ContextSpecificationElement GetOrCreateContextSpecification(TestProvider provider,
 #if RESHARPER_61
                                                                               IUnitTestElementManager manager,
                                                                               PsiModuleManager psiModuleManager,

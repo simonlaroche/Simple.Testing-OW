@@ -124,9 +124,8 @@
       <Private>False</Private>
       <Aliases>resharper</Aliases>
     </Reference>
-	   <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
- 
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -146,7 +145,6 @@
     <Compile Include="UnitTestElementComparer.cs" />
     <Compile Include="PsiExtensions.cs" />
     <Compile Include="PsiExtensions.4.5.cs" />
-    <Compile Include="MSpecElementNaming.cs" />
     <Compile Include="MetadataExtensions.cs" />
     <Compile Include="Explorers\AssemblyExplorer.cs" />
     <Compile Include="Explorers\ElementHandlers\IElementHandler.cs" />
@@ -157,7 +155,7 @@
     <Compile Include="Factories\ContextCache.cs" />
     <Compile Include="Factories\ContextFactory.cs" />
     <Compile Include="Factories\ContextSpecificationFactory.cs" />
-    <Compile Include="MSpecUnitTestProvider.cs" />
+    <Compile Include="TestProvider.cs" />
     <Compile Include="Presentation\Presenter.cs" />
     <Compile Include="Presentation\ContextElement.cs" />
     <Compile Include="Presentation\ContextSpecificationElement.cs" />

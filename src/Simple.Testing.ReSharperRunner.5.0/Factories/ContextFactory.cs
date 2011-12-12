@@ -22,7 +22,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
     readonly string _assemblyPath;
 
     readonly ProjectModelElementEnvoy _projectEnvoy;
-    readonly MSpecUnitTestProvider _provider;
+    readonly TestProvider _provider;
     readonly ContextCache _cache;
     readonly IProject _project;
 #if RESHARPER_61
@@ -32,13 +32,13 @@ namespace Simple.Testing.ReSharperRunner.Factories
 #endif
 
 #if RESHARPER_61
-    public ContextFactory(MSpecUnitTestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager, IProject project, ProjectModelElementEnvoy projectEnvoy, string assemblyPath, ContextCache cache)
+    public ContextFactory(TestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager, IProject project, ProjectModelElementEnvoy projectEnvoy, string assemblyPath, ContextCache cache)
     {
       _manager = manager;
       _psiModuleManager = psiModuleManager;
       _cacheManager = cacheManager;
 #else
-    public ContextFactory(MSpecUnitTestProvider provider, IProject project, ProjectModelElementEnvoy projectEnvoy, string assemblyPath, ContextCache cache)
+    public ContextFactory(TestProvider provider, IProject project, ProjectModelElementEnvoy projectEnvoy, string assemblyPath, ContextCache cache)
     {
 #endif
       _provider = provider;
@@ -95,7 +95,7 @@ namespace Simple.Testing.ReSharperRunner.Factories
                                        _assemblyPath);
     }
 
-    public static ContextElement GetOrCreateContextElement(MSpecUnitTestProvider provider,
+    public static ContextElement GetOrCreateContextElement(TestProvider provider,
 #if RESHARPER_61
                                                            IUnitTestElementManager manager,
                                                            PsiModuleManager psiModuleManager,

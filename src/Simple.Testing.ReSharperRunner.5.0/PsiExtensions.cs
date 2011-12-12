@@ -36,7 +36,9 @@ namespace Simple.Testing.ReSharperRunner
 
 		public static bool IsSpecification(this IDeclaredElement element)
 		{
-			return element.IsValidFieldOfType(typeof(Specification));
+			//use type name because the Specification assemnly might not be loaded
+			//return element.IsValidFieldOfType(typeof(Specification));
+			return element.IsValidFieldOfType("Simple.Testing.Framework.Specification");
 		}
 
 		public static bool IsField(this IDeclaredElement element)
@@ -74,11 +76,6 @@ namespace Simple.Testing.ReSharperRunner
 			return null;
 		}
 
-		public static IEnumerable<IField> GetBehaviorSpecifications(this IClass clazz)
-		{
-			return clazz.Fields.Where(IsSpecification);
-		}
-
 		static bool IsValidFieldOfType(this IDeclaredElement element, Type type)
 		{
 			IDeclaredType fieldType = element.GetValidatedFieldType();
@@ -91,6 +88,21 @@ namespace Simple.Testing.ReSharperRunner
       return fieldType.GetClrName().FullName == type.FullName;
 #else
 			return new CLRTypeName(fieldType.GetCLRName()) == new CLRTypeName(type.FullName);
+#endif
+		}
+
+		static bool IsValidFieldOfType(this IDeclaredElement element, string typeName)
+		{
+			IDeclaredType fieldType = element.GetValidatedFieldType();
+			if (fieldType == null)
+			{
+				return false;
+			}
+
+#if RESHARPER_6
+      return fieldType.GetClrName().FullName == typeName;
+#else
+			return new CLRTypeName(fieldType.GetCLRName()) == new CLRTypeName(typeName);
 #endif
 		}
 

@@ -161,9 +161,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\vs2008\Microsoft.VisualStudio.Shell.Interop.8.0.dll</HintPath>
     </Reference>
-	   <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
- 
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -233,9 +232,6 @@
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\UnitTestElementComparer.cs">
       <Link>UnitTestElementComparer.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\MSpecElementNaming.cs">
-      <Link>MSpecElementNaming.cs</Link>
-    </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PsiExtensions.4.5.cs">
       <Link>PsiExtensions.4.5.cs</Link>
     </Compile>
@@ -260,8 +256,8 @@
     <Compile Include="Explorers\MspecTestFileExplorer.cs" />
     <Compile Include="Explorers\MSpecTestMetadataExplorer.cs" />
     <Compile Include="MetadataExtensions.cs" />
-    <Compile Include="MSpecUnitTestPresenter.cs" />
-    <Compile Include="MSpecUnitTestProvider.cs" />
+    <Compile Include="TestPresenter.cs" />
+    <Compile Include="TestProvider.cs" />
     <Compile Include="Presentation\ContextElement.cs" />
     <Compile Include="Presentation\ContextSpecificationElement.cs" />
     <Compile Include="Presentation\Element.cs" />

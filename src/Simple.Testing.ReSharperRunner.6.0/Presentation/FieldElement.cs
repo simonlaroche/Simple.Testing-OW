@@ -16,7 +16,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
   {
     readonly string _fieldName;
 
-    protected FieldElement(MSpecUnitTestProvider provider,
+    protected FieldElement(TestProvider provider,
                            PsiModuleManager psiModuleManager,
                            CacheManager cacheManager, 
                            Element parent,

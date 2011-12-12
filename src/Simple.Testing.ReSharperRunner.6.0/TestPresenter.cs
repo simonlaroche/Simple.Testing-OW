@@ -10,12 +10,12 @@ namespace Simple.Testing.ReSharperRunner
 {
 	using Presentation;
 
-	[UnitTestPresenter]
-  public class MSpecUnitTestPresenter : IUnitTestPresenter 
+  [UnitTestPresenter]
+  public class TestPresenter : IUnitTestPresenter 
   {
     Presenter _presenter;
 
-    public MSpecUnitTestPresenter() { _presenter = new Presenter(); }
+    public TestPresenter() { _presenter = new Presenter(); }
       
     public void Present(IUnitTestElement element, IPresentableItem item, TreeModelNode node, PresentationState state)
     {

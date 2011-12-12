@@ -132,8 +132,8 @@
 
 				var assemblyLocation = pluginManagerType.Assembly.Location;
 				var destinationAssemblyFile = CopyAndSign(assemblyLocation);
-
-				_pluginManager = vsAppDomain.CreateInstanceFromAndUnwrap(destinationAssemblyFile.Path, pluginManagerType.FullName);
+				
+				_pluginManager = vsAppDomain.CreateInstanceFromAndUnwrap(assemblyLocation, pluginManagerType.FullName);
 				return;
 			}
 		}

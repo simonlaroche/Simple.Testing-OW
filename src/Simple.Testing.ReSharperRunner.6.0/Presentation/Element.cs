@@ -23,13 +23,13 @@ namespace Simple.Testing.ReSharperRunner.Presentation
   {
     readonly string _declaringTypeName;
     readonly ProjectModelElementEnvoy _projectEnvoy;
-    readonly MSpecUnitTestProvider _provider;
+    readonly TestProvider _provider;
     readonly UnitTestTaskFactory _taskFactory;
     Element _parent;
     readonly PsiModuleManager _psiModuleManager;
     readonly CacheManager _cacheManager;
 
-    protected Element(MSpecUnitTestProvider provider,
+    protected Element(TestProvider provider,
                       PsiModuleManager psiModuleManager,
                       CacheManager cacheManager,
                       Element parent,
@@ -206,7 +206,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
         return EmptyArray<UnitTestTask>.Instance;
       }
 
-      throw new ArgumentException(String.Format("Element is not a Machine.Specifications element: '{0}'", this));
+      throw new ArgumentException(String.Format("Element is not a Simple.Testing element: '{0}'", this));
     }
 
     public virtual string GetTitlePrefix()

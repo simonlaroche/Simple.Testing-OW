@@ -19,7 +19,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 	{
 		private readonly string assemblyLocation;
 
-		public ContextElement(MSpecUnitTestProvider provider, PsiModuleManager psiModuleManager, CacheManager cacheManager,
+		public ContextElement(TestProvider provider, PsiModuleManager psiModuleManager, CacheManager cacheManager,
 		                      ProjectModelElementEnvoy projectEnvoy, string typeName, string assemblyLocation, bool isIgnored)
 			: base(provider, psiModuleManager, cacheManager, null, projectEnvoy, typeName, isIgnored)
 		{
@@ -69,7 +69,7 @@ namespace Simple.Testing.ReSharperRunner.Presentation
 		}
 
 		public static IUnitTestElement ReadFromXml(XmlElement parent, IUnitTestElement parentElement,
-		                                           MSpecUnitTestProvider provider, ISolution solution
+		                                           TestProvider provider, ISolution solution
 #if RESHARPER_61
       , IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager
 #endif

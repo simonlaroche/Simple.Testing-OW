@@ -124,9 +124,8 @@
       <Private>False</Private>
       <Aliases>resharper</Aliases>
     </Reference>
-	   <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
- 
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -194,11 +193,11 @@
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\Task.cs">
       <Link>Tasks\Task.cs</Link>
     </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\TestProvider.cs">
+      <Link>TestProvider.cs</Link>
+    </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\UnitTestElementComparer.cs">
       <Link>UnitTestElementComparer.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\MSpecElementNaming.cs">
-      <Link>MSpecElementNaming.cs</Link>
     </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Presentation\Presenter.cs">
       <Link>Presentation\Presenter.cs</Link>
@@ -220,9 +219,6 @@
     </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\MetadataExtensions.5.0.cs">
       <Link>MetadataExtensions.5.0.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\MSpecUnitTestProvider.cs">
-      <Link>MSpecUnitTestProvider.cs</Link>
     </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Presentation\ContextElement.cs">
       <Link>Presentation\ContextElement.cs</Link>

@@ -2,14 +2,11 @@
 namespace Simple.Testing.ReSharperRunner.Runners
 {
 	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
 	using System.IO;
 	using System.Linq;
 	using System.Reflection;
 	using Framework;
 	using resharper::JetBrains.ReSharper.TaskRunnerFramework;
-	using Notifications;
 	using Tasks;
 
 	internal class RecursiveTaskRunner : RecursiveRemoteTaskRunner
@@ -17,9 +14,6 @@ namespace Simple.Testing.ReSharperRunner.Runners
 		//    readonly RemoteTaskNotificationFactory _taskNotificationFactory = new RemoteTaskNotificationFactory();
 		private Assembly _contextAssembly;
 		private Type _contextClass;
-		private PerContextRunListener _listener;
-		private RemoteTaskNotificationFactory _taskNotificationFactory = new RemoteTaskNotificationFactory();
-		private SpecificationRunner _runner;
 		private MemberInfo _member;
 		private TaskResult _taskResult;
 
@@ -137,24 +131,6 @@ namespace Simple.Testing.ReSharperRunner.Runners
 			_taskResult = taskResult;
 		}
 
-		void RegisterRemoteTaskNotifications(TaskExecutionNode node)
-		{
-			_listener.RegisterTaskNotification(_taskNotificationFactory.CreateTaskNotification(node));
-		}
-
-		private static IEnumerable<TaskExecutionNode> FlattenChildren(TaskExecutionNode node)
-		{
-			foreach (var child in node.Children)
-			{
-				yield return child;
-
-				foreach (var descendant in child.Children)
-				{
-					yield return descendant;
-				}
-			}
-		}
-
 		private Assembly LoadContextAssembly(Task task)
 		{
 			AssemblyName assemblyName;
@@ -199,102 +175,4 @@ namespace Simple.Testing.ReSharperRunner.Runners
 			}
 		}
 	}
-
-	public class PerContextRunListener
-	{
-		readonly RemoteTask _contextTask;
-		readonly IRemoteTaskServer _server;
-		readonly IList<RemoteTaskNotification> _taskNotifications = new List<RemoteTaskNotification>();
-
-		public PerContextRunListener(IRemoteTaskServer server, RemoteTask contextNode)
-		{
-			_server = server;
-			_contextTask = contextNode;
-		}
-
-		public void OnAssemblyStart(AssemblyInfo assembly)
-		{
-		}
-
-		public void OnAssemblyEnd(AssemblyInfo assembly)
-		{
-		}
-
-		public void OnRunStart()
-		{
-		}
-
-		public void OnRunEnd()
-		{
-		}
-
-		public void OnSpecificationStart(SpecificationInfo specification)
-		{
-			var notify = CreateTaskNotificationFor(specification);
-
-			notify(task => _server.TaskStarting(task));
-			notify(task => _server.TaskProgress(task, "Running specification"));
-		}
-
-		public void OnSpecificationEnd(SpecificationInfo specification, RunResult result)
-		{
-			var notify = CreateTaskNotificationFor(specification);
-
-			notify(task => _server.TaskProgress(task, null));
-
-			notify(task => _server.TaskOutput(task, result.Message, TaskOutputType.STDOUT));
-			//notify(task => _server.TaskOutput(task, result.ConsoleError, TaskOutputType.STDERR));
-
-			TaskResult taskResult = TaskResult.Success;
-			string message = null;
-			if(!result.Passed)
-			{
-				notify(task => _server.TaskExplain(task, result.Message));
-				notify(task => _server.TaskException(task, new []{new TaskException(result.Thrown)}));
-				message = result.Thrown.ToString();
-				
-				taskResult = TaskResult.Exception;
-			}
-
-			notify(task => _server.TaskFinished(task, message, taskResult));
-		}
-
-		public void OnFatalError(Exception exception)
-		{
-			_server.TaskExplain(_contextTask, "Fatal error: " + exception.Message);
-			_server.TaskException(_contextTask, new[] { new TaskException(exception) });
-			_server.TaskFinished(_contextTask, exception.ToString()
-				, TaskResult.Exception);
-		}
-
-		internal void RegisterTaskNotification(RemoteTaskNotification notification)
-		{
-			_taskNotifications.Add(notification);
-		}
-
-		Action<Action<RemoteTask>> CreateTaskNotificationFor(SpecificationInfo specification)
-		{
-			return actionToBePerformedForEachTask =>
-			{
-				foreach (var notification in _taskNotifications)
-				{
-					if (notification.Matches(specification))
-					{
-						Debug.WriteLine(String.Format("Notifcation for {0} {1}, with {2} remote tasks",
-													  specification.ContainingType,
-													  specification.FieldName,
-													  notification.RemoteTasks.Count()));
-
-						foreach (var task in notification.RemoteTasks)
-						{
-							actionToBePerformedForEachTask(task);
-						}
-					}
-				}
-			};
-		}
-
-		delegate void Action<T>(T arg);
-	}
-
 }

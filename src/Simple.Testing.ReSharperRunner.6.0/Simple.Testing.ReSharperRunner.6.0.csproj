@@ -253,8 +253,8 @@
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\Task.5.0.cs">
       <Link>Tasks\Task.5.0.cs</Link>
     </Compile>
-    <Compile Include="Explorers\MspecTestFileExplorer.cs" />
-    <Compile Include="Explorers\MSpecTestMetadataExplorer.cs" />
+    <Compile Include="Explorers\TestFileExplorer.cs" />
+    <Compile Include="Explorers\TestMetadataExplorer.cs" />
     <Compile Include="MetadataExtensions.cs" />
     <Compile Include="TestPresenter.cs" />
     <Compile Include="TestProvider.cs" />

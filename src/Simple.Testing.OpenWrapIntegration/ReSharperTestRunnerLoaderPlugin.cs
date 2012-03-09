@@ -18,11 +18,11 @@
 		                                                                        	{
 		                                                                        		{
 		                                                                        			new Version("5.0.1659.36"),
-		                                                                        			"Simple.Testing.ResharperRunner.PluginManager, Simple.Testing.ResharperRunner.5.0"
+		                                                                        			"Simple.Testing.ReSharperRunner.PluginManager, Simple.Testing.ReSharperRunner.5.0"
 		                                                                        			},
 		                                                                        		{
 		                                                                        			new Version("5.1.1727.12"),
-		                                                                        			"Simple.Testing.ResharperRunner.PluginManager, Simple.Testing.ResharperRunner.5.1"
+		                                                                        			"Simple.Testing.ReSharperRunner.PluginManager, Simple.Testing.ReSharperRunner.5.1"
 		                                                                        			},
 		                                                                        		{                
 		                                                                        			new Version("6.0.2202.688"),

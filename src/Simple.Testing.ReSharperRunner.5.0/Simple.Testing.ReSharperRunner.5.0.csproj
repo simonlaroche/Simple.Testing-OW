@@ -137,10 +137,6 @@
     <Compile Include="IThreading.cs" />
     <Compile Include="OpenWrapOutput.cs" />
     <Compile Include="PluginManager.cs" />
-    <Compile Include="Runners\Notifications\ContextSpecificationRemoteTaskNotification.cs" />
-    <Compile Include="Runners\Notifications\RemoteTaskNotification.cs" />
-    <Compile Include="Runners\Notifications\RemoteTaskNotificationFactory.cs" />
-    <Compile Include="Runners\Notifications\SilentRemoteTaskNotification.cs" />
     <Compile Include="SiteManager.cs" />
     <Compile Include="UnitTestElementComparer.cs" />
     <Compile Include="PsiExtensions.cs" />

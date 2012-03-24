@@ -166,18 +166,6 @@
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PsiExtensions.cs">
       <Link>PsiExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\ContextSpecificationRemoteTaskNotification.cs">
-      <Link>Runners\Notifications\ContextSpecificationRemoteTaskNotification.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\RemoteTaskNotification.cs">
-      <Link>Runners\Notifications\RemoteTaskNotification.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\RemoteTaskNotificationFactory.cs">
-      <Link>Runners\Notifications\RemoteTaskNotificationFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\Notifications\SilentRemoteTaskNotification.cs">
-      <Link>Runners\Notifications\SilentRemoteTaskNotification.cs</Link>
-    </Compile>
     <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\RecursiveTaskRunner.cs">
       <Link>Runners\RecursiveTaskRunner.cs</Link>
     </Compile>

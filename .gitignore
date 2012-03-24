@@ -33,3 +33,4 @@ ldeploy.bat
 /wraps
 *.wrap
 /src/test-result.xml
+/_cache

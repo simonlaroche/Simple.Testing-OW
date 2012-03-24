@@ -1,5 +1,5 @@
 ﻿name: Simple.Testing
 build: msbuild;profile=net35
 depends: nunit
-depends: openwrap anchored
 depends: openfilesystem
+depends: openwrap anchored

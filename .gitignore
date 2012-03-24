@@ -30,8 +30,9 @@ ldeploy.bat
 *.user
 /AutoTest.config
 /AutoTest.config.old
-/wraps
-*.wrap
+/wraps/openwrap
+/wraps/_cache
 /src/test-result.xml
 /_cache
 /stdout.txt
+Simple.Testing-*.wrap

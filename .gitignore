@@ -34,3 +34,4 @@ ldeploy.bat
 *.wrap
 /src/test-result.xml
 /_cache
+/stdout.txt

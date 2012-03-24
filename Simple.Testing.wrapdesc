@@ -1,4 +1,4 @@
-﻿name: Simple.Testing
+name: Simple.Testing
 build: msbuild;profile=net35
 depends: nunit
 depends: openfilesystem

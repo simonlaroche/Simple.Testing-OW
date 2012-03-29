@@ -87,7 +87,8 @@ namespace Simple.Testing.ReSharperRunner.Runners
 			var remoteTask = node.RemoteTask;
 			Server.TaskProgress(remoteTask, null);
 
-			var runResult = SimpleRunner.RunByName(_member.DeclaringType.Assembly, _member.DeclaringType.FullName + "." + _member.Name).First();
+			var methodName = _member.DeclaringType.FullName + "." + _member.Name;
+			var runResult = SimpleRunner.RunByName(_member.DeclaringType.Assembly, methodName).First();
 			
 			Server.TaskOutput(remoteTask, runResult.Message, TaskOutputType.STDOUT);
 		

@@ -9,6 +9,7 @@ using resharper::JetBrains.Util;
 
 namespace Simple.Testing.ReSharperRunner
 {
+	using ClientFramework;
 	using Framework;
 
 	internal static partial class MetadataExtensions

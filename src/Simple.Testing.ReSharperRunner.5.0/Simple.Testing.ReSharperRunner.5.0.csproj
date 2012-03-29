@@ -126,6 +126,18 @@
     </Reference>
     <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PowerAssert, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\PowerAssert.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Testing.ClientFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\Simple.Testing.ClientFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Testing.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\Simple.Testing.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -185,12 +197,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Simple.Testing.Framework\Simple.Testing.Framework.csproj">
-      <Project>{A6E67E2A-2A26-4016-BE26-D6F3141729D9}</Project>
-      <Name>Simple.Testing.Framework</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />

@@ -38,7 +38,7 @@ namespace Simple.Testing.ReSharperRunner
 		{
 			//use type name because the Specification assemnly might not be loaded
 			//return element.IsValidFieldOfType(typeof(Specification));
-			return element.IsValidFieldOfType("Simple.Testing.Framework.Specification");
+			return element.IsValidFieldOfType("Simple.Testing.ClientFramework.Specification");
 		}
 
 		public static bool IsField(this IDeclaredElement element)

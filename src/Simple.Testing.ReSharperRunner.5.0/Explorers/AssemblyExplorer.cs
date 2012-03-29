@@ -17,6 +17,7 @@ using Simple.Testing.ReSharperRunner.Factories;
 
 namespace Simple.Testing.ReSharperRunner.Explorers
 {
+	using ClientFramework;
 	using Factories;
 	using Framework;
 

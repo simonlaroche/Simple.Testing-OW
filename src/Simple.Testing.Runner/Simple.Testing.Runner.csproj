@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simple.Testing.Runner</RootNamespace>
     <AssemblyName>Simple.Testing.Runner</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -33,13 +34,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>simple.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PowerAssert, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\PowerAssert.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Testing.ClientFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\Simple.Testing.ClientFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Testing.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\Simple.Testing.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,21 +61,7 @@
     <Compile Include="XmlResultWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simple.Testing.Example\Simple.Testing.Example.csproj">
-      <Project>{A245A823-1DA4-4086-A265-158DC379B446}</Project>
-      <Name>Simple.Testing.Example</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Simple.Testing.Framework.Tests\Simple.Testing.Framework.Tests.csproj">
-      <Project>{25DA7F29-6653-40AA-BB99-35D4BDB840B0}</Project>
-      <Name>Simple.Testing.Framework.Tests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Simple.Testing.Framework\Simple.Testing.Framework.csproj">
-      <Project>{A6E67E2A-2A26-4016-BE26-D6F3141729D9}</Project>
-      <Name>Simple.Testing.Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="simple.snk" />
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -53,7 +53,7 @@ namespace Simple.Testing.ReSharperRunner.Runners
 			}
 
 
-			_member = _contextClass.GetField(task.SpecificationFieldName, BindingFlags.Instance | BindingFlags.Public);
+			_member = _contextClass.GetMethod(task.SpecificationFieldName, BindingFlags.Instance | BindingFlags.Public);
 			
 			if(_member == null)
 			{

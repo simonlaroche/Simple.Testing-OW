@@ -23,22 +23,31 @@ namespace Simple.Testing.ReSharperRunner
 				return false;
 			}
 
-			var fields = clazz.Fields;
-			if (fields == null || !fields.Any())
+			var methods = clazz.Methods;
+			if (methods == null || !methods.Any())
 			{
 				return false;
 			}
 
 			return clazz.IsValid() &&
 				   !clazz.IsAbstract &&
-				   fields.Any(x => IsSpecification(x));
+				   methods.Any(x => IsSpecification(x));
 		}
 
 		public static bool IsSpecification(this IDeclaredElement element)
 		{
 			//use type name because the Specification assemnly might not be loaded
 			//return element.IsValidFieldOfType(typeof(Specification));
-			return element.IsValidFieldOfType("Simple.Testing.ClientFramework.Specification");
+
+		    var method = element as IMethod;
+            if (method == null) return false;
+            if (!method.ReturnType.IsValid()) return false;
+
+		    var type = method.ReturnType;
+
+            if (type.ToString() == "Simple.Testing.ClientFramework.Specification") return true;
+            return type.ToString() ==
+                   "System.Collections.Generic.IEnumerable`1[T -> Simple.Testing.ClientFramework.Specification]";
 		}
 
 		public static bool IsField(this IDeclaredElement element)
@@ -90,6 +99,37 @@ namespace Simple.Testing.ReSharperRunner
 			return new CLRTypeName(fieldType.GetCLRName()) == new CLRTypeName(type.FullName);
 #endif
 		}
+
+        static bool IsType(this IType type, string typeName)
+        {
+            if (!type.IsValid()) return false;
+            
+#if RESHARPER_6
+
+            if (type.ToString() == "Simple.Testing.ClientFramework.Specification") return true;
+            return type.ToString() ==
+                   "System.Collections.Generic.IEnumerable`1[T -> Simple.Testing.ClientFramework.Specification]";
+
+            
+#else
+            return new CLRTypeName(type.GetScalarType().GetCLRName()) == new CLRTypeName(typeName);
+#endif
+        }
+
+        
+
+//        static bool IsType(this IDeclaredType element, string typeName)
+//        {
+//            if (!element.IsValid()) return false;
+//            
+//
+//#if RESHARPER_6
+//      return element.GetClrName() == ;
+//#else
+//            return new CLRTypeName(element.GetCLRName()) == new CLRTypeName(typeName);
+//#endif
+//        }
+
 
 		static bool IsValidFieldOfType(this IDeclaredElement element, string typeName)
 		{

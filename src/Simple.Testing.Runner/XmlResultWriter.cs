@@ -12,7 +12,7 @@
 	using Framework;
 
 	/// <summary>
-	/// 	Summary description for XmlResultWriter.
+	/// Summary description for XmlResultWriter.
 	/// </summary>
 	public class XmlResultWriter
 	{

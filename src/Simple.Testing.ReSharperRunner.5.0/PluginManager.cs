@@ -94,7 +94,7 @@ namespace Simple.Testing.ReSharperRunner
 			{
 				_output.Write("Start detection of Simple.Testing Resharper plugin" );
 				var asm = GetType().Assembly;
-				var id = "Simple.Testing ReSharper Plugin";
+			
 #if RESHARPER_6
                 _lifetimeDefinition = resharper::JetBrains.DataFlow.Lifetimes.Define(resharper::JetBrains.DataFlow.EternalLifetime.Instance, "Simple.Testing Reharper Plugin");
                 _pluginsDirectory =
@@ -104,13 +104,14 @@ namespace Simple.Testing.ReSharperRunner
                 
                 _pluginsDirectory.Plugins.Add(_selfPlugin);
 #else
-				_selfPlugin = new ResharperPlugin(id, new[] { asm });
+				var id = "Simple.Testing ReSharper Plugin";
+                _selfPlugin = new ResharperPlugin(id, new[] { asm });
 
 				ResharperPluginManager.Instance.Plugins.Add(_selfPlugin);
 				_selfPlugin.Enabled = true;
 				resharper::JetBrains.Application.Shell.Instance.LoadAssemblies(id, asm);
 #endif
-				_output.Write("End detection of Simple.Testing Resharper plugin");
+                _output.Write("End detection of Simple.Testing Resharper plugin");
 				
 			}
 			catch (Exception e)

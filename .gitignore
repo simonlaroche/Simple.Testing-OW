@@ -32,6 +32,7 @@ ldeploy.bat
 /AutoTest.config.old
 /wraps/_cache
 /src/test-result.xml
-/_cache
+_cache
+_anchored
 /stdout.txt
 Simple.Testing-*.wrap

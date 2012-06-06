@@ -21,7 +21,7 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #endif
 
 #if RESHARPER_61
-    public TestFileExplorer(UnitTestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager)
+    public TestFileExplorer(TestProvider provider, IUnitTestElementManager manager, PsiModuleManager psiModuleManager, CacheManager cacheManager)
     {
       _manager = manager;
       _psiModuleManager = psiModuleManager;

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foo", "Foo\Foo.csproj", "{AB52EBE4-722F-43EF-B909-4460499E658A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foo.Tests", "Foo.Tests\Foo.Tests.csproj", "{0AA2E5A7-D8DB-49D9-AA21-0AFE53FC80CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB52EBE4-722F-43EF-B909-4460499E658A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB52EBE4-722F-43EF-B909-4460499E658A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB52EBE4-722F-43EF-B909-4460499E658A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB52EBE4-722F-43EF-B909-4460499E658A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA2E5A7-D8DB-49D9-AA21-0AFE53FC80CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA2E5A7-D8DB-49D9-AA21-0AFE53FC80CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA2E5A7-D8DB-49D9-AA21-0AFE53FC80CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA2E5A7-D8DB-49D9-AA21-0AFE53FC80CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+		OpenWrap.VisualStudioIntegration2010 = 1;Ensures OpenWrap initialization when a solution is opened.;OpenWrap Visual Studio Solution Add-in
+	EndGlobalSection
+EndGlobal

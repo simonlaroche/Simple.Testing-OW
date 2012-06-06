@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Simple.Testing.ReSharperRunner</RootNamespace>
+    <AssemblyName>Simple.Testing.ReSharperRunner.6.1</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AddAdditionalExplicitAssemblyReferences>False</AddAdditionalExplicitAssemblyReferences>
+    <TargetFrameworkProfile />
+    <OpenWrap-ExportName>solution</OpenWrap-ExportName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;RESHARPER_6;RESHARPER_61;__OW_PLATFORM_AnyCPU__;__OW_PROFILE_net35__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;RESHARPER_6_1</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\lib\vs2008\EnvDTE.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\lib\vs2008\envdte80.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensibility, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\lib\vs2008\Extensibility.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.ComponentModel">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.ComponentModel.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.DocumentManager">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.DocumentManager.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.DocumentModel">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.DocumentModel.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.IDE">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.IDE.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Metadata">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.Metadata.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.ProjectModel">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.ProjectModel.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Shell">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.Shell.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.UI">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.UI.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Util">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.Util.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.VSIntegration">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.Platform.ReSharper.VSIntegration.dll</HintPath>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.Feature.Services.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Common">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.Features.Common.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.Psi.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Resources">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.Resources.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.TaskRunnerFramework">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.TaskRunnerFramework.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestExplorer">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.UnitTestExplorer.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestFramework">
+      <HintPath>..\..\lib\ReSharper\6.1\JetBrains.ReSharper.UnitTestFramework.dll</HintPath>
+      <Private>False</Private>
+      <Aliases>resharper</Aliases>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.CommandBars, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\lib\vs2008\Microsoft.VisualStudio.CommandBars.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\vs2008\Microsoft.VisualStudio.Shell.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\vs2008\Microsoft.VisualStudio.Shell.Interop.8.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PowerAssert, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\PowerAssert.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Simple.Testing.ClientFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\Simple.Testing.ClientFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Testing.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Simple.Testing\Simple.Testing.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\ElementHandlers\ContextElementHandler.cs">
+      <Link>Explorers\ElementHandlers\ContextElementHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\ElementHandlers\ContextSpecificationElementHandler.cs">
+      <Link>Explorers\ElementHandlers\ContextSpecificationElementHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\ElementHandlers\IElementHandler.cs">
+      <Link>Explorers\ElementHandlers\IElementHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\ContextCache.cs">
+      <Link>Factories\ContextCache.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\UnitTestTaskFactory.cs">
+      <Link>Factories\UnitTestTaskFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Guard.cs">
+      <Link>Guard.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\IThreading.cs">
+      <Link>IThreading.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\OpenWrapOutput.cs">
+      <Link>OpenWrapOutput.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PluginManager.cs">
+      <Link>PluginManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PsiExtensions.cs">
+      <Link>PsiExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Runners\RecursiveTaskRunner.cs">
+      <Link>Runners\RecursiveTaskRunner.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\SiteManager.cs">
+      <Link>SiteManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\ContextSpecificationTask.cs">
+      <Link>Tasks\ContextSpecificationTask.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\ContextTask.cs">
+      <Link>Tasks\ContextTask.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\Task.cs">
+      <Link>Tasks\Task.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\UnitTestElementComparer.cs">
+      <Link>UnitTestElementComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\PsiExtensions.4.5.cs">
+      <Link>PsiExtensions.4.5.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\AssemblyExplorer.cs">
+      <Link>Explorers\AssemblyExplorer.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Explorers\FileExplorer.cs">
+      <Link>Explorers\FileExplorer.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\ContextFactory.cs">
+      <Link>Factories\ContextFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Factories\ContextSpecificationFactory.cs">
+      <Link>Factories\ContextSpecificationFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\MetadataExtensions.5.0.cs">
+      <Link>MetadataExtensions.5.0.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.5.0\Tasks\Task.5.0.cs">
+      <Link>Tasks\Task.5.0.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Explorers\TestFileExplorer.cs">
+      <Link>Explorers\TestFileExplorer.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Explorers\TestMetadataExplorer.cs">
+      <Link>Explorers\TestMetadataExplorer.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\MetadataExtensions.cs">
+      <Link>MetadataExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\TestPresenter.cs">
+      <Link>TestPresenter.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\TestProvider.cs">
+      <Link>TestProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Presentation\ContextElement.cs">
+      <Link>Presentation\ContextElement.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Presentation\ContextSpecificationElement.cs">
+      <Link>Presentation\ContextSpecificationElement.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Presentation\Element.cs">
+      <Link>Presentation\Element.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Presentation\FieldElement.cs">
+      <Link>Presentation\FieldElement.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Presentation\ISerializableElement.cs">
+      <Link>Presentation\ISerializableElement.cs</Link>
+    </Compile>
+    <Compile Include="..\Simple.Testing.ReSharperRunner.6.0\Presentation\Presenter.cs">
+      <Link>Presentation\Presenter.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

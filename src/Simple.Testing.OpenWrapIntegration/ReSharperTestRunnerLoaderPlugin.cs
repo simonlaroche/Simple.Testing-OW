@@ -28,6 +28,9 @@
 		                                                                        			new Version("6.0.2202.688"),
 		                                                                        			"Simple.Testing.ReSharperRunner.PluginManager, Simple.Testing.ReSharperRunner.6.0"
 		                                                                        			},
+                                                                                            {
+                                                                                            new Version("6.1.1000.82"),"Simple.Testing.ReSharperRunner.PluginManager, Simple.Testing.ReSharperRunner.6.1"
+                                                                                            }, 
 		                                                                        	};
 
 		private readonly IFileSystem _fileSystem;

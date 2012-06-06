@@ -1,5 +1,5 @@
 ﻿extern alias resharper;
-#if RESHARPER_6
+#if RESHARPER_6 || RESHARPER_61
 using ResharperPluginManager = resharper::JetBrains.Application.PluginSupport.PluginManager;
 using ResharperPlugin = resharper::JetBrains.Application.PluginSupport.Plugin;
 using ResharperPluginTitleAttribute = resharper::JetBrains.Application.PluginSupport.PluginTitleAttribute;

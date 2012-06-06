@@ -15,6 +15,7 @@ using resharper::JetBrains.Util;
 
 using Simple.Testing.ReSharperRunner.Factories;
 
+
 namespace Simple.Testing.ReSharperRunner.Presentation
 {
 	using Factories;

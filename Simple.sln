@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Testing.ReSharperRun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Testing.OpenWrapIntegration", "src\Simple.Testing.OpenWrapIntegration\Simple.Testing.OpenWrapIntegration.csproj", "{612E68D3-E63B-483D-AB98-AFD0C53CC8C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Testing.ReSharperRunner.6.1", "src\Simple.Testing.ReSharperRunner.6.1\Simple.Testing.ReSharperRunner.6.1.csproj", "{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,21 @@ Global
 		{612E68D3-E63B-483D-AB98-AFD0C53CC8C8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{612E68D3-E63B-483D-AB98-AFD0C53CC8C8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{612E68D3-E63B-483D-AB98-AFD0C53CC8C8}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.NuPackRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.NuPackRelease|Any CPU.Build.0 = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.NuPackRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.NuPackRelease|Mixed Platforms.Build.0 = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.NuPackRelease|x86.ActiveCfg = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BA61E572-79BD-49C5-B226-2EFD4E6DE8E8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

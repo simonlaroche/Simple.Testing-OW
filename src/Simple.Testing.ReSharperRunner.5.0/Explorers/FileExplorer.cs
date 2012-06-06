@@ -67,8 +67,6 @@ namespace Simple.Testing.ReSharperRunner.Explorers
 #if RESHARPER_61
       var contextFactory = new ContextFactory(provider, manager, psiModuleManager, cacheManager, project, projectEnvoy, assemblyPath, cache);
       var contextSpecificationFactory = new ContextSpecificationFactory(provider, manager, psiModuleManager, cacheManager, project, projectEnvoy, cache);
-      var behaviorFactory = new BehaviorFactory(provider, manager, psiModuleManager, cacheManager, project, projectEnvoy, cache);
-      var behaviorSpecificationFactory = new BehaviorSpecificationFactory(provider, manager, psiModuleManager, cacheManager, project, projectEnvoy);
 #else
       var contextFactory = new ContextFactory(provider, project, projectEnvoy, assemblyPath, cache);
       var contextSpecificationFactory = new ContextSpecificationFactory(provider, project, projectEnvoy, cache);
